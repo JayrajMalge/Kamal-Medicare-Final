@@ -1,0 +1,17 @@
+{
+  "routes": [
+    "/",
+    "/about-us",
+    "/alldiseases",
+    "/alldoctors",
+    "/allspecializations",
+    "/availablefacilites",
+    "/login",
+    "/main",
+    "/news-blogs",
+    "/profile",
+    "/update-page",
+    "/updatesections",
+    "/viewsreviews"
+  ]
+}
