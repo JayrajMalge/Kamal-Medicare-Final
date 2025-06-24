@@ -1,0 +1,69 @@
+
+<div class="main" *ngIf="operation=='Add Disease' || editmode" >
+    <form  (submit)="facilitysubmitform(operation)">
+      <label for="Disease name">Disease Name</label>
+      <input type="text" name="Disease name" maxlength="20" placeholder="Enter your Facilite name Within 20 characters" [(ngModel)]="dis.name">
+  
+      <label for="Disease Description">Disease Description</label>
+      <textarea name="about" cols="30" rows="10" placeholder="Write something about Facilite" [(ngModel)]="dis.description" ></textarea>
+  
+      <label for="Disease Picture">Add Disease Picture</label>
+      <input type="file" (change)="faciltiesimagesinput($event)" multiple name="Disease Picture">
+      <button type="button" [hidden]="!editmode" (click)="openDialog()" id="btn">view images</button>
+  
+  
+      <button type="submit">{{operation.split(" ")[0]}}</button>
+      <div class="spinner" [hidden]="spinner"></div>
+    </form>
+</div>
+<div class="main" *ngIf="operation=='Update Disease'" [hidden]="editmode">
+    <form action="" (submit)="turneditmode()">
+      <select name="seleted-doctor" id="" [(ngModel)]="updatevalue">
+        <option *ngFor="let fac of diseasearray" [value]="fac.diseaseid">{{fac.name}}</option>
+      </select>
+      <input type="submit" name="Update Doctor" value="Update Disease" >
+      <div class="spinner" [hidden]="spinner"></div>
+   </form>
+</div>
+
+<div class="main" *ngIf="operation=='Delete Disease'">
+  <form action="" (submit)="deletefacilites()">
+    <select name="seleted-doctor" id="" [(ngModel)]="updatevalue">
+      <option *ngFor="let fac of diseasearray" [value]="fac.diseaseid">{{fac.name}}</option>
+    </select>
+    <input type="submit" name="Update Doctor" [value]="operation.split(' ')[0]" >
+    <div class="spinner" [hidden]="spinner"></div>
+ </form>
+</div>
+
+<div class="facilities-container" *ngIf="operation=='Confirm Deletion'">
+  <h1 class="title">Disease Information</h1>
+  <div class="facility-card" >
+    <div class="facility-details">
+      <h2>{{ dis.name }}</h2>
+      <p class="description">{{ dis.description }}</p>
+    </div>
+    <div class="facility-images">
+      <h3>Images</h3>
+      <div class="images">
+        <img 
+          *ngFor="let image of filehandles" 
+          [src]="image.url" 
+          class="facility-image" 
+        />
+      </div>
+    </div>
+  </div>
+  <form (submit)="deletefacility()">
+     <button id="btn">delete</button>
+  </form>
+</div>
+
+
+
+<app-image
+  [images]="urls"
+  [isOpen]="isDialogOpen" 
+  (confirm)="handleConfirm()" 
+  (close)="handleClose()"></app-image>
+

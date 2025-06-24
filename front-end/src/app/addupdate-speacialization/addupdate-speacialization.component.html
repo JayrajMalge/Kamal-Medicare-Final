@@ -1,0 +1,120 @@
+<div class="main" *ngIf="operation=='Add Specialization' || operation=='Update specaility'">
+    <form [formGroup]="specialization">
+      <label for="name">Speciality Name *</label>
+      <input type="text" name="name" formControlName="name" placeholder="Speciality Name">
+  
+      <label for="about">Speciality Description *</label>
+      <textarea name="about" cols="30" rows="10" formControlName="description" placeholder="Write something about Speciality"></textarea>
+      <!--<div [contentEditable]="true" *ngIf="operation=='Add Specialization'" (input)="change_specialization_des($event)" class="des_div"></div>
+      <div [contentEditable]="true" *ngIf="operation=='Update specaility'" [innerHTML]="san.bypassSecurityTrustHtml(specialization_des)" (input)="change_specialization_des($event)" class="des_div"></div>-->
+
+      <button (click)="addspeacilization()" style="margin-bottom: 10px;">Add Subspeacilization</button>
+      <div class="subspecialization" formArrayName="subspecializationarray">
+        <form class="forms" *ngFor="let subspeacailizations of specaili_zation.controls; let i = index" [formGroupName]="i">
+            <label for="sub-specialization-name">Specialization {{i+1}}</label>
+            <label for="sub-specialization-name">Speacailizations name *</label>
+            <input type="text" name="sub-specialization-name" formControlName="subspecializationname" maxlength="30" placeholder="Enter Specailizations name within 30 Characters">
+            <label for="sub-specialization-about">Specialization Description *</label>
+            <textarea name="sub-specialization-about" cols="30" rows="10" formControlName="subspecializationabout" placeholder="Write something about Specailizations"></textarea>
+            <div class="imageinput">
+               <div class="input">
+                 <label for="sub-specialization-images">Specailizations-images</label>
+                 <input type="file" multiple name="sub-specialization-images" (change)="onFileChange($event,i)" >
+               </div>
+               <a *ngIf="operation=='Update specaility'" (click)="openDialog()">view images</a>
+            </div>
+            <button type="button" (click)="removeSubSpecialization(i)" style="margin-bottom: 0.7rem; margin-top: 0.7rem;">Remove Specailizations</button>
+          </form>
+      </div>
+      <div class="spinner" [hidden]="spinner"></div>
+      <button type="button" *ngIf="operation=='Add Specialization'"  (click)="specializationsubmit(operation)">{{operation.split(" ")[0]}} </button>
+      <button type="button" *ngIf="operation=='Update specaility'" (click)="updatespeacility()">{{operation.split(" ")[0]}} </button>
+    </form>
+  </div>
+  
+<div class="main" *ngIf="operation=='Update Specialization'" [hidden]="specialityeditmode">
+    <form action="" (submit)="turnspecialityeditmode()">
+      <select name="seleted-doctor" required [(ngModel)]="updatedspeciality" (change)="specializations()">
+        <option *ngFor="let spe of specializationsarray" [value]="spe.speacializationid">{{spe.fieldname}}</option>
+      </select>
+      <div class="spinner" [hidden]="spinner"></div>
+      <input type="submit" name="Update Doctor" value="Update Speciality" >
+    </form>
+</div>
+
+
+<div class="main"  *ngIf="operation=='Update Specialization'" [hidden]="speacializationeditmode">
+  <form action="" (submit)="turnspecializationeditmode()">
+     <select name="specializations" required [(ngModel)]="updatedspecialization" >
+           <option *ngFor="let special of subspecializationarray" [value]=special.subspeacializationid>{{special.name}}</option>
+     </select>
+    <div class="spinner" [hidden]="spinner"></div>
+    <input type="submit" name="Update Doctor" value="Update Specialization" >
+  </form>
+</div>
+
+
+<!--<div class="main"  *ngIf="operation=='Update specaility'">
+   <form (submit)="updatespeacility($event)">
+     <label for="specialityname">Speciality Name</label>
+     <input type="text" name="specializationname" [(ngModel)]="speacialization.fieldname" maxlength="30" placeholder="Enter Title">
+     <label for="specializationdescription">Speciality Description</label>
+     <textarea name="specializationdescription" [(ngModel)]="speacialization.description" placeholder="Enter Description" cols="30" rows="10"></textarea> 
+
+     <button type="submit">{{operation.split(" ")[0]}}</button>
+   </form>
+</div>-->
+
+<div class="main"  *ngIf="operation=='Update specailization'">
+  <form  (submit)="updatespecializations($event)">
+    <label for="specializationname">Specialization Name *</label>
+    <input type="text" name="specializationname" [value]="subspecializationform.name" maxlength="30" placeholder="Enter Title">
+    <label for="specializationdescription">Specialization Description *</label>
+    <textarea name="specializationdescription" placeholder="Enter Description" [value]="subspecializationform.description" cols="30" rows="10"></textarea>
+    <label for="specializationimages" >Specialization images</label>
+    <input type="file" name="specializationimages" multiple (change)="storenewfiles($event)">
+    <input type="button" (click)="openDialog()" value="view images" id="view">
+    <button type="submit">{{operation.split(" ")[0]}}</button>
+  </form>
+</div>
+
+
+<div class="main" *ngIf="operation=='Delete Specialization'" >
+  <form action="" (submit)="deletemodespeacialization()">
+    <select name="seleted-doctor" required [(ngModel)]="deletevalue" (change)="subspeselectedfordeletion()">
+      <option *ngFor="let spe of specializationsarray" [value]="spe.speacializationid">{{spe.fieldname}}</option>
+    </select>
+    <div class="spinner" [hidden]="spinner"></div>
+    <input type="submit" name="Update Doctor" value="Update Speciality" >
+  </form>
+</div>
+
+
+<div class="specialization-container" *ngIf="operation=='Delete Confirm Specialization'">
+  <h1 class="title">Specialization Information</h1>
+  <div class="specialization-card">
+    <div class="specialization">
+      <h2>{{ speacialization.fieldname }}</h2>
+      <p class="description">{{ speacialization.description }}</p>
+    </div>
+    <div class="subspecializations">
+      <h3>Subspecializations</h3>
+      <ul>
+        <li *ngFor="let subspec of subspecializationarray">
+          <h4>{{ subspec.name }}</h4>
+          <p>{{ subspec.description }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <form (click)="deletepermentaly()" >
+    <button type="submit" id="btn">Delete</button>
+  </form>
+</div>
+
+
+<app-image
+  [images]="urls"
+  [isOpen]="isDialogOpen" 
+  (confirm)="handleConfirm()" 
+  (close)="handleClose()"></app-image>

@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="main">
+    <div class="info">
+        <div class="con">
+            <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.content"></h1>
+            <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="content.content"></p>
+        </div>
+        <div class="img">
+            <input type="file" id="visionfileinput" *ngIf="loginstatus" (change)="onimagechange($event)" hidden accept="image/*" >
+            <img [src]="filehandle.url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggerFileInput()">
+            <img [src]="filehandle.url" *ngIf="!loginstatus" alt="">
+        </div>
+    </div>
+    <div class="content" *ngFor="let tre of treatments">
+        <h3>{{tre.title}}</h3>
+        <p>{{tre.description.slice(0,200)}}</p>
+        <a href="casestudies/{{tre.treatmentid}}">read full Treatment</a>
+    </div>
+</div>
+<app-footer></app-footer>

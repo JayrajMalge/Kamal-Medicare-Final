@@ -1,0 +1,55 @@
+.main {
+    width: 300px;
+    height: 400px; /* Adjust as needed */
+    position: relative;
+    border-radius: 0.3rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures content stays within the boundaries */
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease-in-out; /* Smooth blur effect */
+}
+
+/* Text styles for <h3> and <p> */
+.head, .show {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers text horizontally and vertically */
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    color: #ddd;
+    text-align: center;
+    z-index: 2; /* Ensures text is above the image */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* <h3> shown by default */
+.head {
+    opacity: 1;
+}
+
+/* <p> hidden by default */
+.show {
+    opacity: 0;
+}
+
+/* Hover Effects */
+.main:hover img {
+    filter: blur(5px); /* Apply blur effect on hover */
+}
+
+.main:hover .head {
+    opacity: 0; /* Hide <h3> on hover */
+}
+
+.main:hover .show {
+    opacity: 1; /* Show <p> on hover */
+}

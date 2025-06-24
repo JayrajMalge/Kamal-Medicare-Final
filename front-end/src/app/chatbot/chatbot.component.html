@@ -1,0 +1,14 @@
+<p>chatbot works!</p>
+<script>
+    import {NlpManger} from "node-nlp";
+    const manger = new NlpManger({languages : ['en']});
+    manger.addDocument('en','hello','greeting')
+    manger.addAnswer('en','greeting','how are you today')
+    (async ()=>{
+        await manger.train();
+        manger.save();
+        
+        const answer = await manger.process('en','hello')
+        console.log(answer.answer)
+    })
+</script>

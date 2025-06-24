@@ -1,0 +1,124 @@
+.main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+    .boxes {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        flex-wrap: wrap;
+    }
+    .box {
+        color: #007BFF;
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+    }
+    .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    }
+    h4 {
+        color: #007BFF;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    p {
+        color: #333;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    @media (max-width: 768px) {
+        .boxes {
+            flex-direction: column;
+            align-items: center;
+        }
+        .box {
+            width: 100%;
+        }
+    }
+
+#imagePreview {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#fileInput,#goalfileinput,#missionfileinput,#visionfileinput {
+    display: none;
+}
+
+.about{
+    width: 90%;
+    display: flex;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+.content,.con{
+    width: 50%;
+    padding: 3%;
+    text-align: start;
+}
+
+
+#imagePreview {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
+#fileInput {
+    display: none;
+}
+
+h1{
+    color: #007BFF;
+    margin: 0;
+    padding: 0;
+}
+
+p{
+
+   color: #333;
+   font-size: calc(8px + 1vw);
+}
+
+#welcomeimagePreview{
+    width: 50%;
+    height: auto;
+}
+
+@media (max-width : 540px) {
+    h1{
+        font-size: calc(6px + 1vw);
+    }
+    p{
+        font-size: calc(5px + 1vw);
+    }
+}
+
+@media (max-width : 900px) {
+    #imagePreview{
+        width: 50%;
+        height: auto;
+    }
+}

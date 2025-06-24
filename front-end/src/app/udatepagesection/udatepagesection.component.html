@@ -1,0 +1,26 @@
+
+<div class="main" *ngIf="operation == 'Page and section'">
+    <form>
+        <label class="dropdown-label">Choose Section to Edit</label>
+        <div class="custom-dropdown">
+            <div *ngFor="let img of urls" class="dropdown-item" (click)="selectSection(img.id)">
+                <img [src]="img.img" alt="Section Image" class="dropdown-image">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="main" *ngIf="!updatemode">
+    <form (submit)="updatesection(selectedSection)">
+        <label for="name">Heading</label>
+        <input type="text" maxlength="20" name="name" placeholder="Enter Heading" [(ngModel)]="sectiontoshow.heading">
+        <label for="content">Content</label>
+        <textarea name="content" placeholder="Enter Content" cols="30" rows="10"[(ngModel)]="sectiontoshow.content" ></textarea>
+        <label for="image">Picture to Add</label>
+        <input type="file" name="picture" *ngIf="hasimages" (change)="onchange($event)">
+        <div *ngIf="sectiontoshow.imgvid?.invalid && sectiontoshow.imgvid?.touched">
+            <small>Profile photo is required</small>
+       </div>
+        <button type="submit">Update</button>
+    </form>
+</div>

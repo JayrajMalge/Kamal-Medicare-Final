@@ -1,0 +1,153 @@
+
+<div class="main" *ngIf="operation=='Add Doctor' || doctoreditmode">
+    <form [formGroup]="doctor">
+      <label for="name">Name *</label>
+      <input type="text" formControlName="doc_name" maxlength="20" name="name" placeholder="Enter Doctor name within 20 characters">
+  
+      <label for="Facilite Description">About *</label>
+      <textarea name="about" cols="30" rows="10" placeholder="Write something about Doctor" formControlName="about"  required></textarea>
+
+      <!--<label for="email">Email</label>
+      <input type="text" name="email" formControlName="doc_email" maxlength="20" placeholder="Enter Doctor email">
+  
+      <label for="phone-no">Phone Number</label>
+      <input type="number" name="phone-no" formControlName="doc_phone" maxlength="10" placeholder="Enter Doctor phone number">
+  
+      <label for="schedule">Schedule from</label>
+      <input type="time" formControlName="doc_schedulefrom" name="schedule">
+  
+      <label for="schedule">Schedule to</label>
+      <input type="time" formControlName="doc_scheduleto" name="schedule">-->
+  
+      <button type="button" (click)="adddocspeacializations()" style="margin-top: 12px; margin-bottom: 12px;">Add Speacializations</button>
+      <div class="speacial" formArrayName="doc_speacializations">
+        <form class="form" *ngFor="let speacial of docspeacialization.controls; let k = index" [formGroupName]="k">
+          <label for="specializations">Doctor Speacializations</label>
+          <select formControlName="speacialization" id="">
+            <option *ngFor="let spe of specializationsarray" [value]="spe.speacializationid">{{spe.fieldname}}</option>
+          </select>
+        </form>
+      </div>
+  
+      <div class="profile">
+        <div class="profileinput">
+          <label for="doc_profile">Profile Photo *</label>
+          <label for="" style="font-size: 0.6rem;">note : profile photo should have white background</label>
+          <input id="doc_profile" type="file" (change)="profilephoto($event)" />
+          <div *ngIf="doctor.get('doc_profile')?.invalid && doctor.get('doc_profile')?.touched">
+            <small>Profile photo is required</small>
+           </div>
+        </div>
+        <button *ngIf="filehandle.url" (click)="openDialog()">View</button>
+      </div>
+  
+      <button type="button" (click)="adddoctoreducation()" style="margin-top: 12px; margin-bottom: 12px;" >Add Education</button>
+      <div class="educations" formArrayName="doc_education">
+        <form action="" class="forms" *ngFor="let education of doctor_education.controls; let i = index" [formGroupName]="i">
+           <p>Education {{i+1}}</p>
+           <label for="degree">Degree *</label>
+           <input type="text" name="degree" id="" formControlName="degree" maxlength="20" placeholder="Enter Degree in Within 20 Characters">
+           <!--
+            <label for="university_name">University Name</label>
+            <input type="text" name="university_name" formControlName="university_name" id="" maxlength="35" placeholder="Enter University Name in Within 35 Characters">
+            <label for="from_date">Start Date</label>
+            <input type="date" name="from_date" formControlName="from_date" id="">
+            <label for="to_date">Complete Date</label>
+            <input type="date" name="to_date" formControlName="to_date" id="">-->
+            <button type="button" (click)="removeeducation(i)">Remove Education</button>
+        </form>
+      </div>
+  
+      <button type="button" (click)="addexperience()" style="margin-top: 12px; margin-bottom: 12px;" >Add Experience</button>
+      <div class="experience" formArrayName="doc_experience">
+        <form action="" class="forms" *ngFor="let experience of doctor_experience.controls; let j = index" [formGroupName]="j">
+          <p>Experience {{j+1}}</p>
+           <label for="field">Field *</label>
+           <input type="text" name="field" id="" formControlName="field" maxlength="25" placeholder="Enter Specialization Field within 20 Characters">
+            <!--<label for="hospital_name">Hospital Name</label>
+            <input type="text" name="hospital_name" formControlName="hospital_name" id="" maxlength="22" placeholder="Enter Hospital Name within 25 Characters">-->
+            <label for="years">Years *</label>
+            <input type="number" name="years" formControlName="years">
+            <!--<label for="from_date">Start</label>
+            <input type="date" name="from_date" formControlName="from_date" id="">
+            <label for="to_date">Complete Date</label>
+            <input type="date" name="to_date" formControlName="to_date" id="">-->
+            <button type="button" (click)="removeexperience(j)">Remove Experience</button>
+        </form>
+      </div>
+      <button type="submit" style="margin-top: 12px; margin-bottom: 12px;" (click)="doctorsubmit(operation,docindex)" [hidden]="!spinner">{{operation.split(" ")[0]}}</button>
+      <div class="spinner" [hidden]="spinner"></div>
+    </form>
+  </div>
+
+  <div class="main" *ngIf="operation=='Update Doctor'" [hidden]="doctoreditmode">
+    <form action="" (submit)="turneditmode('Doctor',$event)">
+      <select name="seleted-doctor" id="" [(ngModel)]="updatevalue">
+        <option *ngFor="let doc of doctorsarray" [value]="doctorsarray.indexOf(doc,0)">{{doc.name}}</option>
+      </select>
+      <div class="spinner" [hidden]="spinner"></div>
+      <input type="submit" name="Update Doctor" [hidden]="!spinner" value="Update Doctor" >
+   </form>  
+  </div>
+
+  <div class="main" *ngIf="operation=='Delete Doctor'" [hidden]="doctoreditmode">
+    <form action="" (submit)="deletemode()">
+      <select name="seleted-doctor" id="" [(ngModel)]="updatevalue">
+        <option *ngFor="let doc of doctorsarray" [value]="doctorsarray.indexOf(doc,0)">{{doc.name}}</option>
+      </select>
+      <div class="spinner" [hidden]="spinner"></div>
+      <input type="submit" name="Update Doctor" [hidden]="!spinner" [value]="operation.split(' ')[0]" >
+   </form>  
+  </div>
+
+
+  <div class="doctor-container" *ngIf="operation=='Confirm Deletion'">
+    <h1 class="title">Doctor Information</h1>
+    <div class="doctor-card">
+      <div class="profile">
+        <img [src]="deletedoctorprofilephoto.url" alt="Doctor Photo" />
+        <h2>{{ deletedoctor.name }}</h2>
+        <p>Email: {{ deletedoctor.email }}</p>
+        <p>Phone: {{ deletedoctor.phone }}</p>
+      </div>
+      <div class="details">
+        <h3>Schedule</h3>
+        <p>From: {{ deletedoctor.schedulefrom }}</p>
+        <p>To: {{ deletedoctor.scheduleto }}</p>
+  
+        <h3>Education</h3>
+        <ul>
+          <li *ngFor="let edu of deleteeducations">
+            <strong>{{ edu.degree }}</strong> - {{ edu.universityname }}
+            ({{ edu.fromdate| date }} to {{ edu.todate| date }})
+          </li>
+        </ul>
+  
+        <h3>Experience</h3>
+        <ul>
+          <li *ngFor="let exp of deleteexperiences">
+            <strong>{{ exp.field }}</strong> at {{ exp.hospitalname }}
+            for {{ exp.years }} years ({{ exp.fromdate| date }} to
+            {{ exp.todate| date }})
+          </li>
+        </ul>
+  
+        <h3>Specializations</h3>
+        <ul>
+          <li *ngFor="let spec of deletedoctorspeacializations">
+            {{ spec.speacialization.fieldname }}
+          </li>
+        </ul>
+      </div>
+    </div>
+      <form (submit)="delete()">
+        <button type="submit" id="btn" >Delete</button>
+      </form>
+  </div>
+  
+
+  <app-image
+  [images]="images"
+  [isOpen]="isDialogOpen" 
+  (confirm)="handleConfirm()" 
+  (close)="handleClose()"></app-image>

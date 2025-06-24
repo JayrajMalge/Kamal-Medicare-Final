@@ -1,0 +1,12 @@
+<div class="main">
+    <div class="content">
+        <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.heading"></h1>
+        <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="heading.content"></p>
+    </div>
+    <div class="reviews">
+        <app-reviewbox *ngFor="let re of reviews| slice:0:3" [review]="re"></app-reviewbox>
+    </div>
+    <div class="links">
+        <a href="/viewsreviews">view more</a>
+    </div>
+</div>

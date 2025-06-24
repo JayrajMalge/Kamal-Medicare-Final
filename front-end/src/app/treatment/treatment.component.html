@@ -1,0 +1,196 @@
+
+<div class="main" *ngIf="operation=='Add Treatments' || treatmenteditmode">
+    <form [formGroup]="treatment" >
+      <label for="title">Title *</label>
+      <input type="text" formControlName="title" maxlength="30" name="name" placeholder="Enter Treatment Title within 30 characters">
+  
+      <label for="description">Description *</label>
+      <textarea name="description" id="" formControlName="description" cols="30"  placeholder="Enter Treatment Description within 30 Characters" rows="10"></textarea>
+  
+
+      <button (click)="adddoctor()" style="margin-top: 12px; margin-bottom: 12px;" >Add Doctor</button>
+      <div class="educations" formArrayName="doctors">
+        <form class="forms" *ngFor="let doctor of doctors.controls; let k = index" [formGroupName]="k" >
+          <label for="">Select Performed Doctor </label>
+          <select name="doctors"  formControlName="doctorid">
+            <option *ngFor="let doc of doctorsarray" value={{doc.doctorid}}>{{doc.name}}</option>
+          </select>
+          <button (click)="removedoctor(k)">Remove Doctor</button>
+        </form>
+      </div>
+    
+      <!--<label for="patientname">Patient Name</label>
+      <input type="text" name="patientname" formControlName="patientname" maxlength="20" placeholder="Enter Patient name within 15 Characters">
+  
+      <label for="patientage">Patient Age</label>
+      <input type="number" maxlength="3" name="patientage" formControlName="patientage" id="">
+  
+      <label for="patientgender">Patient Gender</label>
+      <select name="patientgender" formControlName="patientgender">
+        <option value="Male">Male</option>
+        <option value="Feamale">Female</option>
+      </select>
+  
+      <label for="patientmobile">Patient Mobile no</label>
+      <input type="number" name="patientmobile" formControlName="patientmobile" maxlength="10" placeholder="Enter Patient Mobile number" >
+  
+      <label for="patientaddress">Patient Address</label>
+      <input type="text" name="patientaddress" formControlName="patientaddress" maxlength="30" placeholder="Enter Patient Address within 30 Characters">
+  
+      <label for="cost">Cost</label>    
+      <input type="number" name="cost" formControlName="cost">
+  
+      <label for="treatmentdate">Treatment Date</label>
+      <input type="date" name="treatmentdate" formControlName="treatmentdate">-->
+  
+      <button (click)="addcasestudies()" style="margin-top: 12px; margin-bottom: 12px;" >Add Case study</button>
+      <div class="educations" formArrayName="casestudies">
+        <form class="forms" *ngFor="let casestudy of casestudy.controls; let i = index" [formGroupName]="i">
+            <label for="casestudytitle">Case Study Title</label>
+            <input type="text" name="casestudytitle" id="" formControlName="casestudytitle" placeholder="Enter Title of Case Study " >
+            <label for="casestudydescription">Case Study Description</label>
+            <textarea rows="10" name="casestudydescription" formControlName="casestudydescription" cols="30"  placeholder="Enter Case study Description"></textarea>
+            <label for="casestydyresult">Case Study Result</label>
+            <input type="text" name="casestydyresult" formControlName="casestydyresult" placeholder="Enter Case Study Result">
+            <!--<label for="dataofcase">Date</label>
+            <input type="date" name="dataofcase" formControlName="dataofcase" id="">-->
+            <label for="casestudyimages">Case Study Images</label>
+            <button (click)="removecasestudy(i)">Remove Casestudy</button>
+            <input type="file" multiple name="casestudyimages" (change)="casestydyimages($event,i)">
+        </form>
+      </div>
+      <button type="submit" (click)="casestudysumbmit(operation)" style="margin-top: 12px; margin-bottom: 12px;" >{{operation.split(" ")[0]}}</button>
+    </form>
+  </div>
+
+  <div class="main" *ngIf="operation=='Update Treatments'" [hidden]="treatmenteditmode">
+     <form action="" (submit)="updatetreatmentedit()">
+       <label for="updatetreatment">Select Treatment to Update</label>
+       <select name="updatetreatment" [(ngModel)]="updatetreatmentvalue" (change)="selectedtreatments()" >
+          <option *ngFor="let treat of treatmentsarray" [value]="treat.treatmentid">{{treat.title}}</option>
+       </select>
+       <button type="submit">Update Treatment</button>
+     </form>
+  </div>
+
+  <div class="main" *ngIf="operation=='Update Treatments'" [hidden]="treatmenteditmode">
+    <form action="" (submit)="updatecasestudyedit()">
+      <label for="updatetreatment">Select Case study to Update</label>
+      <select name="updatetreatment" [(ngModel)]="updatecasestudyvalue" >
+         <option *ngFor="let case of casestudiesarray" [value]="case.casestudyid">{{case.title}}</option>
+      </select>
+      <button type="submit">Update Case Study</button>
+    </form>
+ </div>
+
+
+ <div class="main" *ngIf="operation=='Update Treatment'">
+   <form (submit)="upadettreatment()" >
+    <label for="title">Title</label>
+    <input type="text" [(ngModel)]="treatmentform.title"  maxlength="30" name="name" placeholder="Enter Treatment Title within 30 characters">
+
+    <label for="description">Description</label>
+    <textarea name="description" [(ngModel)]="treatmentform.description"  cols="30" maxlength="40" placeholder="Enter Treatment Description within 30 Characters" rows="10"></textarea>
+
+    <label for="">Select Performed Doctor</label>
+    <select name="doctors" [(ngModel)]="treatmentform.doctor">
+      <option *ngFor="let doc of doctorsarray" [value]="doc.doctorid">{{doc.name}}</option>
+    </select>
+  
+    <!--<label for="patientname">Patient Name</label>
+    <input type="text" name="patientname" [(ngModel)]="treatmentform.patient1.name" maxlength="20" placeholder="Enter Patient name within 15 Characters">
+
+    <label for="patientage">Patient Age</label>
+    <input type="number" maxlength="3" name="patientage"  [(ngModel)]="treatmentform.patient1.age">
+
+    <label for="patientgender" >Patient Gender</label>
+    <select name="patientgender" [(ngModel)]="treatmentform.patient1.gender">
+      <option value="Male">Male</option>
+      <option value="Feamale">Female</option>
+    </select>
+
+    <label for="patientmobile">Patient Mobile no</label>
+    <input type="number" name="patientmobile" [(ngModel)]="treatmentform.patient1.phoneno" maxlength="10" placeholder="Enter Patient Mobile number" >
+
+    <label for="patientaddress">Patient Address</label>
+    <input type="text" name="patientaddress" [(ngModel)]="treatmentform.patient1.address" maxlength="30" placeholder="Enter Patient Address within 30 Characters">-->
+
+    <label for="cost">Cost</label>    
+    <input type="number" name="cost" [(ngModel)]="treatmentform.cost" >
+
+    <label for="treatmentdate">Treatment Date</label>
+    <input type="date" name="treatmentdate" [(ngModel)]="treatmentform.tratmentdate" id="" >
+    <label for="">{{formatedtreatmentdate}}</label>
+
+    <button type="submit">{{operation.split(" ")[0]}}</button>
+   </form>
+ </div>
+
+ <div class="main" *ngIf="operation=='Upadate CaseStudy'">
+  <form (submit)="updatecasestudiesform()">
+    <label for="casestudytitle">Case Study Title</label>
+    <input type="text" name="casestudytitle" id="" [(ngModel)]="Casestudyform.title" placeholder="Enter Title of Case Study " >
+    <label for="casestudydescription">Case Study Description</label>
+    <textarea type="text" name="casestudydescription"  [(ngModel)]="Casestudyform.description" id=""  placeholder="Enter Case study Description"></textarea>
+    <label for="casestydyresult">Case Study Result</label>
+    <input type="text" name="casestydyresult"  [(ngModel)]="Casestudyform.result" placeholder="Enter Case Study Result">
+    <label for="dataofcase">Date</label>
+    <input type="date" name="dataofcase"  [(ngModel)]="formatedcasedate"  id="">
+    <label for="">{{formatedcasedate}}</label>
+    <label for="casestudyimages">Case Study Images</label>
+    <input type="file" multiple name="casestudyimages" (change)="getnewcasestudyimages($event)" [(ngModel)]="images">
+    <input type="button" id="view" (click)="openDialog()" value="view images">
+    <button type="submit">{{operation.split(" ")[0]}}</button>
+</form>
+ </div>
+
+ <div class="main" *ngIf="operation=='Delete Treatment'">
+  <form  (submit)="deletetreatmentmode()">
+    <label for="updatetreatment">Select Case study to Update</label>
+    <select name="updatetreatment" [(ngModel)]="updatetreatmentvalue" (change)="selectedtreatments()" >
+       <option *ngFor="let treat of treatmentsarray" [value]="treat.treatmentid">{{treat.title}}</option>
+    </select>
+    <button type="submit">Delete Treatment</button>
+  </form>
+</div>
+
+
+  <div class="container" *ngIf="operation=='ConfirmDeletion Treatment'">
+    <div class="treatment-card">
+      <h2 class="treatment-title">{{ deletetreatment.title }}</h2>
+      <p class="treatment-description">{{ deletetreatment.description }}</p>
+      <div class="treatment-details">
+        <p><strong>Doctor ID:</strong> {{ deletetreatment.doctor }}</p>
+        <p><strong>Cost:</strong> ${{ deletetreatment.cost }}</p>
+        <p><strong>Date:</strong> {{ deletetreatment.tratmentdate| date: 'medium' }}</p>
+      </div>
+    </div>
+  
+    <div class="case-studies">
+      <h3>Case Studies</h3>
+      <div *ngFor="let caseStudy of casestudiesarray" class="case-study-card">
+        <h4 class="case-title">{{ caseStudy.title }}</h4>
+        <p class="case-description">{{ caseStudy.description }}</p>
+        <p><strong>Result:</strong> {{ caseStudy.result }}</p>
+        <p><strong>Date:</strong> {{ caseStudy.dateofcase| date: 'medium' }}</p>
+  
+        <div class="case-images">
+          <h5>Images</h5>
+          <div class="image-grid">
+          <div class="image-item" *ngFor="let img of deletedcasestudiesimages">
+              <button (click)="viewimages(img)">view images</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form (click)="delete()">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+  
+  <app-image
+  [images]="urls"
+  [isOpen]="isDialogOpen" 
+  (confirm)="handleConfirm()" 
+  (close)="handleClose()"></app-image>

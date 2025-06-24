@@ -1,0 +1,236 @@
+
+.main {
+    background-color:#ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    min-width: 600px;
+    max-width: 700px;
+    margin: auto;
+    box-sizing: border-box;
+    padding-top: 5%;
+  }
+  
+  .main form label ,p{
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 5px;
+  }
+  
+  .main form input[type="text"],
+  .main form input[type="number"],
+  .main form input[type="time"],
+  .main form input[type="file"],
+  .main form input[type='date'],
+  .main form input[type='submit'],
+  .main form select,
+  .main form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #007BFF;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .main form input:focus,
+  .main form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 170, 160, 0.3);
+  }
+  
+  .main form textarea {
+    resize: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  .main form input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  .main form button ,.experience button,.educations button{
+    background-color: #007BFF;
+    color: #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main form button:hover {
+    background-color: #007BFF;
+  }
+  
+  .experience form,.educations form{
+    padding: 10px 10px 10px 10px;
+    border: #007BFF 3px solid;
+    border-radius: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .profile{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    align-items:start;
+    justify-content: start;
+  }
+
+  a{
+    font-size: 1rem;
+    color: #FF4C4C;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+    border-radius: 0.4rem;
+    background-color: #007BFF;
+    width: max-content;
+    text-align: center;
+  }
+  .profileinput{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #FF4C4C; /* Spinner color */
+  border-top: 5px solid transparent; /* Transparent for spin effect */
+  border-radius: 50%;
+  margin-left: 45%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width : 650px) {
+  .main{
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width : 425px) {
+  .main{
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
+
+
+
+
+
+
+
+
+.doctor-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #ffffff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+.doctor-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid #007BFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.profile {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #007BFF;
+  object-fit: cover;
+}
+
+.profile h2 {
+  color: #007BFF;
+  margin-top: 10px;
+}
+
+.profile p {
+  color: #007BFF;
+  margin: 5px 0;
+}
+
+.details {
+  flex: 2 1 300px;
+}
+
+.details h3 {
+  color: #FF4C4C;
+  margin: 15px 0 5px;
+}
+
+.details p,
+.details ul {
+  color: #007BFF;
+  margin: 5px 0;
+}
+
+.details ul {
+  padding-left: 20px;
+}
+
+.details li {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .doctor-card {
+    flex-direction: column;
+  }
+
+  .details {
+    margin-top: 20px;
+  }
+}
+
+#btn{
+  border-radius: 2rem;
+  color: #ddd;
+  background-color: #007BFF;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,45 @@
+<!--<button (click)="logingoogle()">google</button>-->
+
+<div class="login">
+    <img src="../../assets/login.png" alt="">
+    <div class="main default2">
+        <div class="content default1">
+            <h3>Connect with Us</h3>
+            <p>Subscribe and stay up to date on the latest news,
+    
+            get exclusive offers and special gifts.</p>
+        </div>
+        <div class="emailform default1">
+            <label for="">Email Vaildation</label>
+            <form action="" class="loginform default1">
+                <input type="text" placeholder="enter email" name="email" [(ngModel)]="email">
+                <input type="number" placeholder="Enter OTP" name="otp" [hidden]="optstatus" [(ngModel)]="otp">
+                <label for="" [hidden]="timerstatus" *ngIf="timervalue > 0">Valid Time For OTP {{timervalue}}s</label>
+                <div class="spinner" [hidden]="sendingotp"></div>
+                <input type="submit" [value]="optbuttontext" [hidden]="!sendingotp" (click)="sendOtp()">
+            </form>
+            <div id="g_id_onload"
+                data-client_id="570526081493-hjoova088p62q4f5aq4l99v38o9v3k99.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse">
+            </div>
+            <div class="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular"
+                data-logo_alignment="left">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

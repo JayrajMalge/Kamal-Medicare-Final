@@ -1,0 +1,10 @@
+<div class="main">
+    <div class="content">
+      <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.content"></h1>
+      <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="content.content"></p>
+   </div>
+   <div class="bloges">
+      <app-blog-news-box *ngFor="let news of newsarray" [news]="news"></app-blog-news-box>
+   </div>
+   <a href="/news-blogs/News" id="button">view mores</a>
+</div>

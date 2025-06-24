@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="spinner-box" *ngIf="mainspinner">
+    <div class="spinner-gradient"></div>
+</div>
+<div class="main" *ngIf="!mainspinner">
+    <div class="content">
+        <h2 [contentEditable]="loginstatus" [innerHTML]="logo.heading" (input)="onheadingchange($event)"></h2>
+        <p [contentEditable]="loginstatus" [innerHTML]="logo.content" (input)="oncontentchange($event)"></p>
+    </div>
+    <form >
+        <input type="text" [(ngModel)]="search" placeholder="search specialization" [ngModelOptions]="{standalone : true}" (change)="searchspe()">
+        <div class="spinner" [hidden]="search.length == 0"></div>
+    </form>
+    <div class="specializations">
+       <div class="special" *ngFor="let spe of diseases">
+          <div class="special-card">
+            <h4>{{spe.name}}</h4>
+            <p>{{spe.description}}</p>
+            <a href="/diseases/{{spe.diseaseid}}" class="view-more">View More</a>
+        </div>
+       </div>
+    </div>
+</div>
+<app-footer></app-footer>

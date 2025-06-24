@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="main">
+    <!--<div class="content">
+        <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.content"></h1>
+        <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="content.content"></p>
+    </div>-->
+    <div class="info">
+        <div class="con">
+            <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.content"></h1>
+            <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="content.content"></p>
+        </div>
+        <div class="img">
+            <input type="file" id="visionfileinput" *ngIf="loginstatus" (change)="onimagechange($event)" hidden accept="image/*" >
+            <img [src]="filehandle.url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggerFileInput()">
+            <img [src]="filehandle.url" *ngIf="!loginstatus" alt="">
+        </div>
+    </div>
+    <div class="blogs">
+        <app-blog-news-box *ngFor="let no of newsarray| slice:0:3" [news]="no"></app-blog-news-box>
+    </div>
+</div>
+<app-footer></app-footer>

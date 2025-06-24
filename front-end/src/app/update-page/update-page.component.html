@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="sidebar" [class.open]="isSidebarOpen">
+    <div class="sidebar-header">
+      <h3>Update Bar</h3>
+      <button class="close-btn" (click)="toggleSidebar()">Close</button>
+    </div>
+    <ul class="sidebar-menu">
+      <li *ngFor="let item of menuItems" class="menu-item">
+        <a (click)="toggleDropdown(item)">{{ item.name }}</a>
+        <ul class="dropdown" *ngIf="item.isOpen">
+          <li *ngFor="let subItem of item.subItems">
+            <a (click)="openform(subItem.name)">{{ subItem.name }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+    <button class="menu-btn" (click)="toggleSidebar()">☰ Menu</button>
+  </div>
+  <div class="logo">
+    <p>Kamal Medicare</p>
+  </div>
+</div>
+
+<div class="main">
+  <app-add-doctor [operation]="operation"></app-add-doctor>
+  <app-addupdate-facilite [operation]="operation"></app-addupdate-facilite>
+  <app-addupdate-speacialization [operation]="operation"></app-addupdate-speacialization>
+  <app-addupdate-news [operation]="operation"></app-addupdate-news>
+  <app-treatment [operation]="operation"></app-treatment>
+  <app-update-disease [operation]="operation"></app-update-disease>
+  <app-appointmentchecking *ngIf="operation=='Check Appointments'"></app-appointmentchecking>
+</div>
+<app-footer></app-footer>

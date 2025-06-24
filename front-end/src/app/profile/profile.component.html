@@ -1,0 +1,15 @@
+<div class="dialog-overlay" *ngIf="isOpen">
+  <div class="dialog-box">
+    <div class="dialog-header">
+      <button class="close-btn" (click)="closeDialog()">&times;</button>
+    </div>
+    <div class="dialog-body">
+         <h2>{{user.email}}</h2>
+         <p>{{user.username}}</p>
+         <a (click)="logout()">Log Out</a>
+    </div>
+    <div class="dialog-footer">
+      <button class="dialog-btn secondary" (click)="closeDialog()">Close</button>
+    </div>
+  </div>
+</div>

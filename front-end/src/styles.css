@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.spinner-gradient {
+    width:  40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(transparent,#007BFF);
+    mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 0);
+    animation: spinner-rotate 1s linear infinite;
+  }
+  @keyframes spinner-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .spinner-box{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  

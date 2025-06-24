@@ -1,0 +1,163 @@
+.main {
+    background-color: #ffb5b5;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 600px;
+    max-width: 800px;
+        margin: auto;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  /* Form Labels */
+  .main form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #132743;
+    margin-bottom: 5px;
+  }
+  
+  /* Form Inputs */
+  .main form input[type="text"],
+  .main form input[type="number"],
+  .main form input[type="time"],
+  .main form input[type="file"],
+  .main form input[type='date'],
+  .main form input[type='submit'],
+  .main form select,
+  .main form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #132743;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .main form input:focus,
+  .main form textarea:focus {
+    border-color: #132743;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 170, 160, 0.3);
+  }
+  
+  /* Textarea */
+  .main form textarea {
+    resize: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* File Input Styling */
+  .main form input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  /* Submit Button */
+  .main form button {
+    background-color: #132743;
+    color: #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main form button:hover {
+    background-color: #132743;
+  }
+
+  select option img{
+    width: 200px;
+    height: auto;
+  }
+
+
+
+
+
+
+/* Style for the main container */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* Dropdown label */
+.dropdown-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+/* Custom dropdown container */
+.custom-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    max-width: 800px;
+    justify-content: center;
+    border: 2px solid #00aaa0;
+    transition: 0.3s ease-in-out;
+}
+
+/* Dropdown items */
+.dropdown-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Image Styling */
+.dropdown-image {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.dropdown-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item:hover .dropdown-image {
+    transform: scale(1.1);
+}
+
+@media (max-width : 650px) {
+  .main{
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width : 425px) {
+  .main{
+    min-width: 300px;
+    max-width: 300px;
+  }
+}

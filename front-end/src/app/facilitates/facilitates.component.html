@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="speacializations">
+    <h1>{{facility.facilityname}}</h1>
+    <div class="content"> 
+        <div class="carousel">
+            <button class="carousel-btn prev" (click)="prevImage()">&#10094;</button>
+            <div class="carousel-images">
+                <img *ngFor="let img of facilitiesimages; let i = index" [src]="img.url" alt="" [class.active]="i === currentImageIndex">
+            </div>
+            <button class="carousel-btn next" (click)="nextImage()">&#10095;</button>
+        </div>
+        <p>{{facility.description}}</p>
+    </div>
+</div>
+<app-footer></app-footer>

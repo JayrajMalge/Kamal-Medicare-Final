@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="main">
+    <div class="info">
+        <div class="con">
+            <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.heading"></h1>
+           <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="heading.content"></p>
+        </div>
+        <div class="img">
+            <input type="file" id="visionfileinput" *ngIf="loginstatus" (change)="onimagechange($event)" hidden accept="image/*" >
+            <img [src]="headingimage.url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggerFileInput()">
+            <img [src]="headingimage.url" *ngIf="!loginstatus" alt="">
+        </div>
+    </div>
+    <div class="news">
+        <h1>{{news.title}}</h1>
+        <div class="content">
+            <img *ngIf="filehandles.length > 0" [src]="filehandles[0].url" alt="">
+            <p>{{news.description}} </p>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
