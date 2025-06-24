@@ -22,7 +22,6 @@ export class AddupdateSpeacializationComponent {
   specializationsarray : Specialization[] = []
   subspecializationarray : SubSpecialization[] = []
   doctorsarray : any[] = []
-  specialization_des : string = ''
 
   speacializationeditmode : boolean = false
   specialityeditmode : boolean = false
@@ -52,10 +51,6 @@ export class AddupdateSpeacializationComponent {
           this.subspecializationarray = response
       },(error)=>{}
     )
-  }
-
-  change_specialization_des(event : any){
-    this.specialization_des =  event.target.innerHTML
   }
 
   @Input() operation : string = 'Add Doctor'
@@ -129,9 +124,6 @@ export class AddupdateSpeacializationComponent {
 
   specializationsubmit(operation : string){
     if(operation=='Add Specialization'){
-      this.specialization.patchValue({
-        description: this.specialization_des,
-      })
        if(this.specialization.valid){
         const values =  this.specialization.value
         const specialization : any = {
@@ -227,7 +219,6 @@ export class AddupdateSpeacializationComponent {
       description:spea[0].description,
       subspecializationarray :this.formBuilder.array([])
     })
-    this.specialization_des = spea[0].description
   }
 
   speacialization : Specialization = new Specialization()
@@ -303,6 +294,9 @@ export class AddupdateSpeacializationComponent {
               window.location.reload()
             },(error)=>{}
           )
+        } else {
+          alert("Specialization Updated Sucessfully")
+              window.location.reload()
         }
       },(error)=>{}
     )

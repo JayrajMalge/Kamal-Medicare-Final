@@ -1,121 +1,3 @@
-/*.main{
-    height: auto;
-    width: 100%;
-    background-color: white;
-    margin-top: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding-bottom: 5%;
-}
-
-h1{
-    font-size: 2.5rem;
-    color: #ddd;
-}
-
-a{
-    text-decoration: none;
-}
-
-#viewmore{
-    font-size: 1rem;
-    color: #132743;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
-    border-radius: 0.4rem;
-    background-color: #ddd;
-    width: max-content;
-}
-
-.specialization{
-    width: 87%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-p{
-    color: #ddd;
-    font-size: 1.2rem;
-}
-.content{
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 2%;
-    height: auto;
-    text-align: center;
-}
-
-
-
-
-.dialog-body {
-    text-align: center;
-    display: none;
-  }
-
-  @media (max-width : 900px) {
-    .dialog-body{
-        display: block;
-    }
-    .specialization{
-        display: none;
-    }
-  }
-  
-  .carousel {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .carousel-image {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .arrow-btn {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: background 0.3s;
-  }
-  
-  .arrow-btn.left {
-    left: 10px;
-  }
-  
-  .arrow-btn.right {
-    right: 10px;
-  }
-  
-  .arrow-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-  }*/
 
 
 .main {
@@ -134,66 +16,63 @@ p{
 
 .content h1 {
   color: #007BFF;
-  font-size: calc(32px + 0.5vw);
+  font-size: calc(9px + 1vw);
   margin: 0 0 10px; 
 }
 
 .content p {
-  color: #6C757D; /* Secondary color for text */
-  font-size: 18px; /* Standard font size */
-  margin: 0; /* Remove default margin */
+  color: #6C757D; 
+  font-size: calc(5px + 1vw);
+  margin: 0; 
 }
 
-/* Specialization Grid */
 .specialization {
   display: flex;
-  gap: 100px; /* Spacing between items */
-  margin-bottom: 20px; /* Spacing below the grid */
+  gap: 100px;
+  margin-bottom: 20px;
 }
 
-/* Carousel Section */
 .dialog-body {
   display: none;
   position: relative;
-  text-align: center; /* Center-align carousel content */
+  text-align: center; 
 }
 
 .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; /* Spacing between buttons and content */
+  gap: 20px; 
 }
 
 .arrow-btn {
-  background-color: #007BFF; /* Primary color for buttons */
-  color: #ffffff; /* White text */
+  background-color: #007BFF; 
+  color: #ffffff; 
   border: none;
-  border-radius: 50%; /* Circular buttons */
-  padding: 3px 8px; /* Button padding */
-  font-size: 18px; /* Larger font size */
+  border-radius: 50%; 
+  padding: 3px 8px;
+  font-size: 18px;    
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
+  transition: background-color 0.3s ease; 
 }
 
 .arrow-btn:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: #0056b3; 
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .specialization {
-      flex-direction: column; /* Stack items vertically on smaller screens */
+      flex-direction: column; 
       align-items: center;
   }
 
   .carousel {
       width: 100%;
-      flex-direction: row; /* Stack carousel items vertically */
+      flex-direction: row; 
   }
 
   .arrow-btn {
-      margin: 10px 0; /* Add spacing between stacked buttons */
+      margin: 10px 0; 
   }
   app-specialization{
     width: 90%;

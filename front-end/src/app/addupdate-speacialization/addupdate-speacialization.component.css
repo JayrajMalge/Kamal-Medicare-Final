@@ -1,6 +1,5 @@
 
 
-/* Container */
 .main {
     background-color: #ffffff;
     padding: 20px 30px;
@@ -14,7 +13,6 @@
     padding-bottom: 5%;
   }
   
-  /* Form Labels */
   .main form label {
     display: block;
     font-size: 14px;

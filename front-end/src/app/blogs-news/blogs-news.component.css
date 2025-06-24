@@ -26,28 +26,27 @@
 
 
 h1{
-    font-size: 1.7rem;
+    font-size: calc(9px + 2vw);
     margin: 0;
     color: #007BFF;
     text-decoration: underline #0056b3;
 }
 p{
-    font-size: 1rem;
+    font-size: calc(4px + 1vw);
     color: #6C757D;
 }
 
 #button{
-    font-size: 1rem;
+    background-color: #FF6B6B;
     color: #ffffff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
     text-decoration: none;
     cursor: pointer;
-    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
-    border-radius: 0.4rem;
-    background-color: #FF6B6B;
-    width: max-content;
-    text-align: center;
-    margin-top: 2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 0.5rem;
 }
 
 #button:hover{

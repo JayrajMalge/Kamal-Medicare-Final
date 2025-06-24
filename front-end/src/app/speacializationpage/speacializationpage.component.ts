@@ -63,6 +63,7 @@ export class SpeacializationpageComponent implements OnInit{
                   this.userservice.getdocspeacializations("getdoctorspecializationbysubspecializationid",this.selectedspe.speacialization.speacializationid).subscribe(
                     (response)=>{
                       this.Doctors = response
+                      this.mainspinner = false
                     },(error)=>{}
                    )
                 },(error)=>{}
