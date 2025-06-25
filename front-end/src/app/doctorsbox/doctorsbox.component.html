@@ -12,10 +12,33 @@
         </div>       </div>
    </div>
 
-   <div class="doctors">
+   <!--<div class="doctors">
       <app-doctor-box *ngFor="let doc of Doctors| slice:0:3" [doc]="doc" ></app-doctor-box>
-   </div>
-
+   </div>-->
+   <div class="specialization-carousel">
+    <button class="nav-button prev" (click)="prev()" [disabled]="currentIndex === 0">
+      <i class="fas fa-chevron-left"><</i>
+    </button>
+  
+    <div class="specialization-container">
+      <app-doctor-box 
+        *ngFor="let spe of visibleItems" 
+        [doc]="spe">
+      </app-doctor-box>
+    </div>
+  
+    <button class="nav-button next" (click)="next()" [disabled]="currentIndex >= totalPages - 1">
+      <i class="fas fa-chevron-right">></i>
+    </button>
+    </div>
+    <div class="dots-container" *ngIf="totalPages > 1">
+        <span 
+        *ngFor="let dot of [].constructor(totalPages); let i = index"
+        class="dot" 
+        [class.active]="i === currentIndex"
+        (click)="goToPage(i)">
+        </span>
+    </div>
    <!--<div class="dialog-body">
        <div class="carousel">
            <button class="arrow-btn left" (click)="prevImage()">&lt;</button>

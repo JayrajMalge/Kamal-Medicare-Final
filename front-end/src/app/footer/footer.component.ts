@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
-import { Doctor, Facility, Section, SubSpecialization, hospital } from '../enities';
+import { Doctor, Facility, Section, Specialization, SubSpecialization, hospital } from '../enities';
 import { AppoinmentformComponent } from '../appoinmentform/appoinmentform.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -24,7 +24,7 @@ export class FooterComponent implements OnInit{
 
   loginstatus : boolean = false
   doctorarray : Doctor[] = []
-  subspecializationarray : SubSpecialization[] = []
+  subspecializationarray : Specialization[] = []
   facilitesarray : Facility[] = []
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class FooterComponent implements OnInit{
                 this.facilitesarray = resposnes
             },(error)=>{}
           )
-          this.userservice.getallsubspecialization("getallsubspeacialization").subscribe(
+          this.userservice.getspecailizations("getspecializations").subscribe(
             (response)=>{
               this.subspecializationarray = response
             },(error)=>{}

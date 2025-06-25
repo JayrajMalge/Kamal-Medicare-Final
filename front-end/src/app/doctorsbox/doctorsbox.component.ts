@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { DoctorBoxComponent } from '../doctor-box/doctor-box.component';
 import { UserServiceService } from '../user-service.service';
 import { Doctor, Section, Specialization } from '../enities';
@@ -100,6 +100,54 @@ oncontentchange(event : any){
         })
       },(error)=>{}
      )
+  }
+
+  
+  currentIndex = 0;
+  itemsPerPage = 3;
+  windowWidth = window.innerWidth;
+
+  @HostListener('window:resize')
+  onResize() {
+    this.windowWidth = window.innerWidth;
+    this.calculateItemsPerPage();
+  }
+
+  calculateItemsPerPage() {
+    if (this.windowWidth < 768) {
+      this.itemsPerPage = 1;
+    } else if (this.windowWidth < 992) {
+      this.itemsPerPage = 2;
+    } else {
+      this.itemsPerPage = 3;
+    }
+  }
+
+  get visibleItems() {
+    const start = this.currentIndex * this.itemsPerPage;
+    return this.Doctors.slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.ceil(this.Doctors.length / this.itemsPerPage);
+  }
+
+  prev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+  next() {
+    if (this.currentIndex < this.totalPages - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  goToPage(index: number) {
+    if (index >= 0 && index < this.totalPages) {
+      this.currentIndex = index;
+    }
   }
 }
 

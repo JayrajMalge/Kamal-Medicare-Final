@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { SpecializationComponent } from '../specialization/specialization.component';
 import { UserServiceService } from '../user-service.service';
-import { ImageServiceService } from '../image-service.service';
 import { Section, Specialization, SubSpecialization, filehandle } from '../enities';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -69,9 +68,7 @@ export class SpecializationboxComponent implements OnInit{
        content : data
     }
     this.userservice.savesection("updatesection",s).subscribe(
-      (response)=>{
-        
-      },(error)=>{}
+      (response)=>{},(error)=>{}
     )
   }
 
@@ -97,4 +94,50 @@ export class SpecializationboxComponent implements OnInit{
     )
   }
   
+  currentIndex = 0;
+  itemsPerPage = 3;
+  windowWidth = window.innerWidth;
+
+  @HostListener('window:resize')
+  onResize() {
+    this.windowWidth = window.innerWidth;
+    this.calculateItemsPerPage();
+  }
+
+  calculateItemsPerPage() {
+    if (this.windowWidth < 768) {
+      this.itemsPerPage = 1;
+    } else if (this.windowWidth < 992) {
+      this.itemsPerPage = 2;
+    } else {
+      this.itemsPerPage = 3;
+    }
+  }
+
+  get visibleItems() {
+    const start = this.currentIndex * this.itemsPerPage;
+    return this.subspecializationarray.slice(start, start + this.itemsPerPage);
+  }
+
+  get totalPages() {
+    return Math.ceil(this.subspecializationarray.length / this.itemsPerPage);
+  }
+
+  prev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  }
+
+  next() {
+    if (this.currentIndex < this.totalPages - 1) {
+      this.currentIndex++;
+    }
+  }
+
+  goToPage(index: number) {
+    if (index >= 0 && index < this.totalPages) {
+      this.currentIndex = index;
+    }
+  }
 }

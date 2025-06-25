@@ -10,16 +10,40 @@
             </div>
         </div>
     </div>
-    <div class="specialization">
+    <div class="specialization-carousel">
+        <button class="nav-button prev" (click)="prev()" [disabled]="currentIndex === 0">
+          <i class="fas fa-chevron-left"><</i>
+        </button>
+      
+        <div class="specialization-container">
+          <app-specialization 
+            *ngFor="let spe of visibleItems" 
+            [Specialization]="spe">
+          </app-specialization>
+        </div>
+      
+        <button class="nav-button next" (click)="next()" [disabled]="currentIndex >= totalPages - 1">
+          <i class="fas fa-chevron-right">></i>
+        </button>
+    </div>
+    <div class="dots-container" *ngIf="totalPages > 1">
+        <span 
+          *ngFor="let dot of [].constructor(totalPages); let i = index"
+          class="dot" 
+          [class.active]="i === currentIndex"
+          (click)="goToPage(i)">
+        </span>
+   </div>
+    <!--<div class="specialization">
         <app-specialization *ngFor="let spe of subspecializationarray| slice:0:3; let i = index" [Specialization]="spe"  ></app-specialization>
     </div>
     <div class="dialog-body">
         <div class="carousel">
-           <!--<button class="arrow-btn left" (click)="prevImage()">&lt;
+           <button class="arrow-btn left" (click)="prevImage()">&lt;
            </button>-->
            <!--<app-specialization [Specialization]="subspecializationarray[currentImageIndex]"></app-specialization>
            <button class="arrow-btn right" (click)="nextImage()">&gt;
-           </button>-->
+           </button>
         </div>
-     </div>
+     </div>>-->
 </div>

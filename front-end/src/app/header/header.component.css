@@ -44,26 +44,6 @@ nav {
     color: #007BFF;
 }
 
-/*
-.Categories .dropdown {
-    display: none;
-    position: absolute;
-    background-color: #007BFF;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 8px; 
-    border-radius: 5px;
-}
-
-.Categories:hover .dropdown {
-    display: block;
-    z-index: 1000;
-}*/
-
-/*.fachover:hover .facdrop{
-    display: block;
-    z-index: 1000;
-}*/
-
 
 #dropdownoption{
     display: block;
@@ -84,7 +64,7 @@ nav {
 }
 
 .btn {
-    background-color: #FF6B6B;
+    background: linear-gradient(45deg , #ff3e3e ,#e28787);
     color: #ffffff;
     border: none;
     padding: 8px 16px; 
@@ -97,9 +77,6 @@ nav {
 .btn:hover {
     background-color: #FF4C4C;
 }
-
-
-
 
 .small_dropdown {
     display: none;
@@ -129,15 +106,17 @@ nav {
         display: block;
         position: absolute;
         right: 20px;
-        padding: 12px 20px;
-        background-color: #ffffff;
-        color:#007BFF;
+        background: linear-gradient(45deg, rgb(255, 98, 0) , #0011ff);
+        border-radius: 100%;
+        color:#ffffff;
         border: none;
-        border-radius: 30px;
-        font-size: 32px;
+        font-size: 22px;
+        width: 48px;
+        height: 48px;
         cursor: pointer;
         transition: background-color 0.3s ease;
         z-index: 999;
+        animation: gradientFlow 8s ease infinite;
     }
 
     .small_dropdown {
@@ -150,6 +129,18 @@ nav {
     .btn{
         display: none;
     }
+    @keyframes gradientFlow {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
 }
 
 .small_dropdown:hover .dropdown-content {
@@ -178,7 +169,7 @@ nav {
     display: block;
     padding: 10px 15px;
     color: #333; 
-
+    cursor: pointer;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -271,9 +262,6 @@ nav {
         display: none;
     }
 }
-
-
-
 
 .side-menu {
 position: fixed;

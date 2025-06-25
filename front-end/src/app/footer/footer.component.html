@@ -72,7 +72,7 @@
       <div class="subsection" id="sub">
         <p id="p">Specializations</p>
         <ul>
-          <li *ngFor="let fac of subspecializationarray| slice:0:6; let i = index"><a href="/subspe/{{fac.speacialization.speacializationid}}/{{fac.subspeacializationid}}">{{fac.name}}</a></li>
+          <li *ngFor="let fac of subspecializationarray| slice:0:6; let i = index"><a href="/speacialization/{{fac.speacializationid}}">{{fac.fieldname}}</a></li>
         </ul>
       </div>
       <div class="subsection">

@@ -29,6 +29,7 @@
 
 .about p{
   color: #6C757D;
+  font-size: calc(5px + 1vw);
 }
 
 .info{
@@ -38,8 +39,8 @@
 
 
 .profile-image {
-  width: 320px;
-  height: 320px;
+  width: calc(170px + 7vw);
+  height: calc(170px + 7vw);
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-bottom: #FF4C4C 3px solid;
@@ -57,13 +58,13 @@
 }
 
 .doctor-name {
-  font-size: 32px;
+  font-size: calc(7px + 1vw);
   color: #007BFF; /* Primary color for name */
   margin-bottom: 10px;
 }
 
 .info-title{
-  font-size: 18px;
+  font-size: calc(6px + 1vw);
   color: #6C757D; /* Secondary color for text */
   margin: 5px 5px;
 }
@@ -91,7 +92,8 @@
 }
 
 .tab-title {
-  color: #007BFF; /* Primary color for heading */
+  color: #007BFF; 
+  font-size: calc(7px + 1vw);
 }
 
 .appointment-button {
@@ -100,8 +102,8 @@
   max-width: 300px;
   margin: 20px auto 0;
   padding: 15px;
-  background-color: #FF4C4C; /* Primary color for button */
   color: #ffffff; /* White text */
+  background: linear-gradient(45deg , #ff3e3e ,#e28787);
   border: none;
   border-radius: 25px;
   font-size: 16px;
@@ -133,15 +135,15 @@
   }
 
   .doctor-name {
-      font-size: 24px;
+      font-size: calc(8px + 1vw);
   }
 
   .info-title {
-      font-size: 16px;
+      font-size: calc(8px + 1vw);
   }
 
   .tab-title {
-      font-size: 20px;
+      font-size: calc(8px + 1vw);
   }
 
   .appointment-button {

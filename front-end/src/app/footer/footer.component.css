@@ -1,8 +1,8 @@
 #btn {
-  background-color: #007BFF;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
+  background: linear-gradient(45deg, #0056b3 , #007BFF);
   border-radius: 25px;
   font-size: 14px;
   cursor: pointer;
@@ -234,15 +234,18 @@ p{
   }
   .about{
     width: 100%;
+    margin-bottom: 1rem;
   }
 
   .contact{
     width: 100%;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     align-items: start;
   }
-
+  .main{
+    gap: 1rem;
+  }
   .right{
     width: 100%;
   }

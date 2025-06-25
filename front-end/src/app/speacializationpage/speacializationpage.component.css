@@ -35,10 +35,11 @@ p,.des{
     color: #6C757D;
 }
 .main{
-    background-color: #ffffff;
+    background-color: #f0f8ff;
     border-top: #6C757D 3px solid;
     margin-top: 0;
     padding-top: 0;
+    padding-bottom: 1rem;
 }
 
 a{
@@ -69,7 +70,8 @@ a{
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-size: 14px;
-    color: #333; /* Dark text color */
+    color: #333;
+    border: #FF4C4C 2px solid;
   }
   
   .scroll-item:hover {
@@ -80,7 +82,8 @@ a{
   
   .scroll-item.selected {
     background-color: #0056b3; /* Darker shade for selected item */
-    color: #fff; /* White text for selected item */
+    color: #fff;
+    border: none;
   }
   
   /* Hide default scrollbar and style it */
@@ -123,6 +126,7 @@ a{
   .con{
     width: 50%;
     display: flex;
+    gap: 1rem;
     flex-direction: column;
   }
 

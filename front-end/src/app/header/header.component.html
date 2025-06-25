@@ -17,7 +17,7 @@
                     <a href="/availablefacilites">explore more</a>
                 </div>
             </li>
-            <li class="fachover" style="cursor: pointer;"><a >Specialization</a>
+            <li class="fachover"><a >Specialization</a>
                 <div class="facdrop">
                     <p > Our Specializations </p>
                     <ul>
@@ -81,7 +81,7 @@
     <div *ngFor="let item of menuItems; let i = index" class="menu-item">
         <div class="menu-label" (click)="toggleMenu(i)">
           {{ item.label }}
-          <span class="arrow" [ngClass]="{'open': item.isOpen}">▶</span>
+          <span class="arrow" [ngClass]="{'open': item.isOpen}">></span>
         </div>
         <div class="dropdownmenubar" *ngIf="item.isOpen">
           <div class="alldropdownsubitems">

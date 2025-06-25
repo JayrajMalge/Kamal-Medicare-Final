@@ -26,7 +26,7 @@
 
 
 h1{
-    font-size: calc(9px + 2vw);
+    font-size: calc(6px + 1vw);
     margin: 0;
     color: #007BFF;
     text-decoration: underline #0056b3;
@@ -37,7 +37,7 @@ p{
 }
 
 #button{
-    background-color: #FF6B6B;
+    background: linear-gradient(45deg , #ff3e3e ,#e28787);
     color: #ffffff;
     border: none;
     padding: 10px 20px;

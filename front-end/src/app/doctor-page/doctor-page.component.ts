@@ -24,6 +24,7 @@ export class DoctorPageComponent implements OnInit{
   ];
 
   activeTab = 0;
+  mainspinner : boolean = false
   constructor(private route : ActivatedRoute,private userservice : UserServiceService,private imageservice : ImageServiceService){}
 
   education : Education[] = []
@@ -44,6 +45,7 @@ export class DoctorPageComponent implements OnInit{
     this.activeTab = index;
   }
   ngOnInit(): void {
+    this.mainspinner = true
     const doctorid =Number(this.route.snapshot.paramMap.get("doctorid"))
     this.userservice.geteucations("geteducations/"+doctorid).subscribe(
       (response)=>{
@@ -57,11 +59,12 @@ export class DoctorPageComponent implements OnInit{
          this.doctorspecializations = response
       },(error)=>{}
     )
-    this.userservice.getexperiences("getexperience/"+doctorid).subscribe(
-      (response)=>{
-          this.experiences = response
-      },(error)=>{}
-    )
+      this.userservice.getexperiences("getexperience/"+doctorid).subscribe(
+        (response)=>{
+            this.experiences = response
+            this.mainspinner = false
+        },(error)=>{}
+      )
     /*this.userservice.gettreatments("gettreatmentbydcotor/"+doctorid).subscribe(
       (response)=>{
         this.treatment = response

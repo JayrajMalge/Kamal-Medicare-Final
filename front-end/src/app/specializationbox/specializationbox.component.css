@@ -10,24 +10,26 @@
 
 .content {
   text-align: center;  
-    margin-bottom: 20px; 
-
+    padding-bottom: 20px; 
+  border-bottom: #0056b3 2px solid  ;
 }
 
 .content h1 {
   color: #007BFF;
-  font-size: calc(9px + 1vw);
+  font-size: calc(13px + 1vw);
   margin: 0 0 10px; 
 }
 
 .content p {
   color: #6C757D; 
-  font-size: calc(5px + 1vw);
+  font-size: calc(8px + 1vw);
   margin: 0; 
 }
 
 .specialization {
   display: flex;
+  width: max-content;
+  overflow-x: auto;
   gap: 100px;
   margin-bottom: 20px;
 }
@@ -83,8 +85,6 @@
   .dialog-body{
       width: 100%;
       display: block;
-  }
-  .specialization{
   }
 }
 
@@ -142,3 +142,110 @@
   background: #0056b3; 
 }
 
+
+
+.specialization-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.specialization-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.nav-button {
+  background: #f0f8ff;
+  border: none;
+  width: 40px;
+  border: #FF4C4C 2px solid;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  z-index: 10;
+  
+  &:hover {
+    background: #4a6bff;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    
+    &:hover {
+      background: #fff;
+      color: inherit;
+    }
+  }
+  
+  &.prev {
+    margin-right: 15px;
+  }
+  
+  &.next {
+    margin-left: 15px;
+  }
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &.active {
+      background: #4a6bff;
+      transform: scale(1.2);
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .specialization-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 0 20px;
+    scroll-snap-type: x mandatory;
+    
+    > * {
+      scroll-snap-align: start;
+      flex: 0 0 calc(50% - 10px);
+    }
+  }
+  
+  .nav-button {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialization-container {
+    > * {
+      flex: 0 0 100%;
+    }
+  }
+}
