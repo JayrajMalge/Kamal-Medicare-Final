@@ -1,28 +1,21 @@
 
 package web.hospital.backend.controllers;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
 import java.security.SecureRandom;
-import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.view.RedirectView;
 import web.hospital.backend.MailService;
 import web.hospital.backend.OTPServices;
 import web.hospital.backend.enities.Casestudies;
@@ -141,10 +134,6 @@ public class mainController {
         
     }*/
     
-    @GetMapping("/")
-    public String redirect(){
-        return "index";
-    }
     
     @GetMapping("/getuser")
     public User getusers(){

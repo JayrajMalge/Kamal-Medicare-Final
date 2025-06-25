@@ -2,7 +2,7 @@
     <form [formGroup]="specialization">
       <label for="name">Speciality Name *</label>
       <input type="text" name="name" formControlName="name" placeholder="Speciality Name">
-  
+
       <label for="description">Speciality Description *</label>
       <textarea name="description" cols="30" rows="10" formControlName="description" placeholder="Write something about Speciality"></textarea>
       <!--<div [contentEditable]="true" *ngIf="operation=='Add Specialization'" (input)="change_specialization_des($event)" class="des_div"></div>
@@ -31,7 +31,7 @@
       <button type="button" *ngIf="operation=='Update specaility'" (click)="updatespeacility()">{{operation.split(" ")[0]}} </button>
     </form>
   </div>
-  
+
 <div class="main" *ngIf="operation=='Update Specialization'" [hidden]="specialityeditmode">
     <form action="" (submit)="turnspecialityeditmode()">
       <select name="seleted-doctor" required [(ngModel)]="updatedspeciality" (change)="specializations()">
@@ -59,7 +59,7 @@
      <label for="specialityname">Speciality Name</label>
      <input type="text" name="specializationname" [(ngModel)]="speacialization.fieldname" maxlength="30" placeholder="Enter Title">
      <label for="specializationdescription">Speciality Description</label>
-     <textarea name="specializationdescription" [(ngModel)]="speacialization.description" placeholder="Enter Description" cols="30" rows="10"></textarea> 
+     <textarea name="specializationdescription" [(ngModel)]="speacialization.description" placeholder="Enter Description" cols="30" rows="10"></textarea>
 
      <button type="submit">{{operation.split(" ")[0]}}</button>
    </form>
@@ -115,6 +115,6 @@
 
 <app-image
   [images]="urls"
-  [isOpen]="isDialogOpen" 
-  (confirm)="handleConfirm()" 
+  [isOpen]="isDialogOpen"
+  (confirm)="handleConfirm()"
   (close)="handleClose()"></app-image>

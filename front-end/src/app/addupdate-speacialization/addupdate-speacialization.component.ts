@@ -7,14 +7,14 @@ import { Specialization, SubSpecialization, SubSpecializationimgvideo, filehandl
 import { Router } from '@angular/router';
 import { ImageServiceService } from '../image-service.service';
 import { ImageComponent } from '../image/image.component';
-import { QuillModule } from 'ngx-quill';
+// import { QuillModule } from 'ngx-quill';
 
 
 
 @Component({
   selector: 'app-addupdate-speacialization',
   standalone: true,
-  imports: [FormsModule,CommonModule,ReactiveFormsModule,ImageComponent,QuillModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule,ImageComponent],
   templateUrl: './addupdate-speacialization.component.html',
   styleUrl: './addupdate-speacialization.component.css'
 })
@@ -43,7 +43,7 @@ export class AddupdateSpeacializationComponent {
       },(error)=>{}
     )
   }
-  
+
   specializations(){
     const id = this.updatedspeciality;
     this.userservice.getspeacializationbyid("getspeacializationbyid",id).subscribe(
@@ -65,7 +65,7 @@ export class AddupdateSpeacializationComponent {
   speacializationarraybyindex(index : number){
     return this.specaili_zation.at(index).get("subspecializationimages") as FormArray
   }
-  
+
   subSpecializationimages : any[] = [];
   bytearrayimages : any[] = []
   get specaili_zation(){
@@ -162,14 +162,14 @@ export class AddupdateSpeacializationComponent {
            console.log(error)
          }
         )
-        
+
       } else {
         alert("Plases fill all * marked information")
        }
-    } 
+    }
   }
   imagetobyte(file : any){
-     
+
   }
 
   updatedspeciality : number = 0
@@ -205,7 +205,7 @@ export class AddupdateSpeacializationComponent {
   }
 
   turnspecialityeditmode(){
-    this.operation = 'Update specaility' 
+    this.operation = 'Update specaility'
     const spea = this.specializationsarray.filter((spe)=>{
       return spe.speacializationid == this.updatedspeciality
     })

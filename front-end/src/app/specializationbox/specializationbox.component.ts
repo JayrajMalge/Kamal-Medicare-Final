@@ -56,7 +56,7 @@ export class SpecializationboxComponent implements OnInit{
     }
     this.userservice.savesection("updatesection",s).subscribe(
       (response)=>{
-        
+
       },(error)=>{}
     )
   }
@@ -78,7 +78,7 @@ export class SpecializationboxComponent implements OnInit{
       this.currentImageIndex = (this.currentImageIndex + 1) % this.specializationarray.length;
     }
   }
-  
+
   prevImage() {
     if (this.specializationarray.length > 0) {
       this.currentImageIndex = (this.currentImageIndex - 1 + this.specializationarray.length) % this.specializationarray.length;
@@ -93,7 +93,7 @@ export class SpecializationboxComponent implements OnInit{
       (response)=>{this.subspecializationarray = response},(error)=>{}
     )
   }
-  
+
   currentIndex = 0;
   itemsPerPage = 3;
   windowWidth = window.innerWidth;

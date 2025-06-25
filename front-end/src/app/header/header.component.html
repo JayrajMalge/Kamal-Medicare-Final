@@ -34,9 +34,9 @@
                     </ul>
                     <a href="/alldiseases" >explore more</a>
                 </div>
-            </li> 
+            </li>
             <li class="fachover" ><a href="/about-us">About Us</a></li>
-            <li class="fachover" ><a >patient guide</a>
+            <li class="fachover" ><a >Patient Guide</a>
                 <div class="facdrop">
                     <p style="font-size: 1rem;">explore</p>
                     <ul style="display: flex;flex-direction: column;gap: 2px;">
@@ -48,8 +48,8 @@
                     </ul>
                 </div>
             </li>
-            <li class="fachover" ><a href="/login" id="Sign-In" *ngIf="!loginstatus">sign-in</a></li>
-        </ul>              
+            <!-- <li class="fachover" ><a href="/login" id="Sign-In" *ngIf="!loginstatus">sign-in</a></li> -->
+        </ul>
     </div>
     <button class="btn" (click)="openAppointment()">Book Appointment</button>
     <!--<div class="small_dropdown">
@@ -64,12 +64,12 @@
             <a *ngIf="loginstatus" (click)="openprofiledialog()">profile</a>
             <a *ngIf="role=='Admin'" href="/update-page"  >update section</a>
             <a href="/alldiseases">Diseases</a>
-            <a href="/about-us" >About Us</a> 
+            <a href="/about-us" >About Us</a>
             <a (click)="openAppointment()" >Appoinments</a>
             <a href="/login">sign-in</a>
             <a *ngIf="role=='Admin'" href="/updatesections">update sections</a>
           </div>
-    </div>  --> 
+    </div>  -->
 
 
 <button class="menu-button" (click)="openMenu()">☰</button>
@@ -102,14 +102,14 @@
 
 
 
-<app-reviewform 
+<app-reviewform
 [title]="'Submit Your Feedback'"
 [isOpen]="isDialogOpen"
 (close)="handleClose()"
 (formSubmit)="handleFormSubmit($event)"
 ></app-reviewform>
 
-<app-appoinmentform 
+<app-appoinmentform
 [isOpen]="isappointmentopen"
 (close)="handleAppointmentClose()"
 (formSubmit)="handleFormAppointmentSubmit()"

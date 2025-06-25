@@ -81,7 +81,7 @@ export class AboutPageComponent implements OnInit{
       }
       this.userservice.savesection("updatesection",s).subscribe(
       (response)=>{
-        
+
       },(error)=>{}
       )
     }
@@ -97,7 +97,7 @@ export class AboutPageComponent implements OnInit{
       }
       this.userservice.savesection("updatesection",s).subscribe(
       (response)=>{
-        
+
       },(error)=>{}
       )
     }
@@ -113,7 +113,7 @@ export class AboutPageComponent implements OnInit{
       }
       this.userservice.savesection("updatesection",s).subscribe(
       (response)=>{
-        
+
       },(error)=>{}
       )
     }
@@ -129,7 +129,7 @@ export class AboutPageComponent implements OnInit{
       }
       this.userservice.savesection("updatesection",s).subscribe(
       (response)=>{
-        
+
       },(error)=>{}
       )
     }
@@ -145,7 +145,7 @@ export class AboutPageComponent implements OnInit{
       }
       this.userservice.savesection("updatesection",s).subscribe(
       (response)=>{
-        
+
       },(error)=>{}
       )
     }
@@ -203,7 +203,7 @@ export class AboutPageComponent implements OnInit{
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
       reader.onload = () => {
-        const arrayBuffer = reader.result as ArrayBuffer; 
+        const arrayBuffer = reader.result as ArrayBuffer;
         const byteArray = new Uint8Array(arrayBuffer);
         this.about.imgvid = Array.from(byteArray)
         const s  = {
@@ -247,7 +247,7 @@ export class AboutPageComponent implements OnInit{
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
       reader.onload = () => {
-        const arrayBuffer = reader.result as ArrayBuffer; 
+        const arrayBuffer = reader.result as ArrayBuffer;
         const byteArray = new Uint8Array(arrayBuffer);
         this.mission.imgvid = Array.from(byteArray)
         const s  = {
@@ -271,7 +271,7 @@ export class AboutPageComponent implements OnInit{
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
       reader.onload = () => {
-        const arrayBuffer = reader.result as ArrayBuffer; 
+        const arrayBuffer = reader.result as ArrayBuffer;
         const byteArray = new Uint8Array(arrayBuffer);
         this.vision.imgvid = Array.from(byteArray)
         const s  = {
@@ -295,7 +295,7 @@ export class AboutPageComponent implements OnInit{
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
       reader.onload = () => {
-        const arrayBuffer = reader.result as ArrayBuffer; 
+        const arrayBuffer = reader.result as ArrayBuffer;
         const byteArray = new Uint8Array(arrayBuffer);
         this.goal.imgvid = Array.from(byteArray)
         const s  = {

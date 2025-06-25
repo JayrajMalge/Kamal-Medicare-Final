@@ -25,6 +25,6 @@ export class MainComponent implements OnInit{
     const email = window.localStorage.getItem("email") ?? '';
     if (email != null && email != '') {
       this.loginstatus = true;
-    }  
+    }
    }
 }

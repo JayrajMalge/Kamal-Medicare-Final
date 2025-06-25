@@ -5,9 +5,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WebClientService {
-  
+
   TOKEN='';
   API_URL="http://localhost:5000/"
+  // API_URL="/"
   constructor(private http:HttpClient) {}
   public get<T>(url:string)
   {

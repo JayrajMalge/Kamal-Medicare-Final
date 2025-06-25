@@ -1,5 +1,5 @@
 
-<app-appoinmentform 
+<app-appoinmentform
 [isOpen]="isappointmentopen"
 (close)="handleAppointmentClose()"
 (formSubmit)="handleFormAppointmentSubmit()"
@@ -8,8 +8,8 @@
    <div class="main">
      <div class="section" id="outline">
       <div class="contact">
-        <div class="small">  
-          <h4 id="p">Mobile No</h4>    
+        <div class="small">
+          <h4 id="p">Mobile No</h4>
           <p [contentEditable]="loginstatus" (input)="onmobilenochange($event)" [innerHTML]="mobilenosection.content"></p>
         </div>
         <div class="smaill">
@@ -76,14 +76,14 @@
         </ul>
       </div>
       <div class="subsection">
-        <p id="p">Facilites</p>
+        <p id="p">Facilities</p>
         <ul>
           <li *ngFor="let fac of facilitesarray| slice:0:6; let i = index"><a href="/facilites/{{fac.facilitesid}}">{{fac.facilityname}}</a></li>
         </ul>
       </div>
        </div>
      </div>
-     <div class="section">  
+     <div class="section">
        <div class="right">
          <p>2025 Kamal Medicare Cancer Centre & Hospital . All Rights Reserved</p>
          <p style="font-size: 0.6rem;">Developed by <a href="http://jayrajmalge.github.io/">jayrajmalge</a></p>
