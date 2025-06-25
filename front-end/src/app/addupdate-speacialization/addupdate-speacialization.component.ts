@@ -7,14 +7,13 @@ import { Specialization, SubSpecialization, SubSpecializationimgvideo, filehandl
 import { Router } from '@angular/router';
 import { ImageServiceService } from '../image-service.service';
 import { ImageComponent } from '../image/image.component';
-import { QuillModule } from 'ngx-quill';
 
 
 
 @Component({
   selector: 'app-addupdate-speacialization',
   standalone: true,
-  imports: [FormsModule,CommonModule,ReactiveFormsModule,ImageComponent,QuillModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule,ImageComponent],
   templateUrl: './addupdate-speacialization.component.html',
   styleUrl: './addupdate-speacialization.component.css'
 })

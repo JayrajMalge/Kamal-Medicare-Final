@@ -4,18 +4,15 @@ import { RouterOutlet } from '@angular/router';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AppoinmentsetupComponent } from '../appoinmentsetup/appoinmentsetup.component';
 import { SpecializationboxComponent } from '../specializationbox/specializationbox.component';
-import { WelcomeboxComponent } from '../welcomebox/welcomebox.component';
 import { DoctorsboxComponent } from '../doctorsbox/doctorsbox.component';
-import { ReviewsComponent } from '../reviews/reviews.component';
 import { BlogsNewsComponent } from '../blogs-news/blogs-news.component';
 import { FooterComponent } from '../footer/footer.component';
-import { ChatbotComponent } from "../chatbot/chatbot.component";
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [HeaderComponent, RouterOutlet, AppoinmentsetupComponent, SpecializationboxComponent, WelcomeboxComponent, DoctorsboxComponent, ReviewsComponent, BlogsNewsComponent, FooterComponent],
+  imports: [HeaderComponent, RouterOutlet, AppoinmentsetupComponent, SpecializationboxComponent, DoctorsboxComponent, BlogsNewsComponent, FooterComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
