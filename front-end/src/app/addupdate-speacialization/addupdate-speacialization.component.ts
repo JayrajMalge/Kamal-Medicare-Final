@@ -7,7 +7,6 @@ import { Specialization, SubSpecialization, SubSpecializationimgvideo, filehandl
 import { Router } from '@angular/router';
 import { ImageServiceService } from '../image-service.service';
 import { ImageComponent } from '../image/image.component';
-// import { QuillModule } from 'ngx-quill';
 
 
 
