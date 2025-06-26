@@ -43,9 +43,7 @@ export class AppoinmentformComponent implements OnInit{
         }else{
           this.loginstatus = false
         }
-      },(error)=>{
-
-      }
+      },(error)=>{}
     )
     this.userservice.getsectionbysectionid("getsectionbysectionid",89).subscribe(
       (response)=>{

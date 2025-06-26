@@ -26,7 +26,7 @@ import { WelcomeboxComponent } from './welcomebox/welcomebox.component';
 export const routes: Routes = [
     {path : "",component : MainComponent},
     {path : "main",component : MainComponent},
-    {path : "loginuser34nsn",component : LoginComponent},
+    {path : "login",component : LoginComponent},
     {path : "profile",component : ProfileComponent},
     {path : "speacialization/:speacializationid", component : SpeacializationpageComponent},
     {path : "subspeacialization/:subspeacializationid",component : SubspecializationComponent},

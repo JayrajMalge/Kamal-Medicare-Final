@@ -32,24 +32,23 @@ export class FooterComponent implements OnInit{
     this.userservice.getuserbyemail("getbyemail",email).subscribe(
       (response)=>{
           this.loginstatus = response.role=='Admin'
-          this.userservice.getdoctors("getdoctors").subscribe(
-            (response)=>{
-                this.doctorarray = response
-            },(error)=>{}
-          )
-          this.userservice.getfacilites("getfacilites").subscribe(
-            (resposnes)=>{
-                this.facilitesarray = resposnes
-            },(error)=>{}
-          )
-          this.userservice.getspecailizations("getspecializations").subscribe(
-            (response)=>{
-              this.subspecializationarray = response
-            },(error)=>{}
-          )
       },(error)=>{}
     )
-    console.log(this.loginstatus)
+    this.userservice.getdoctors("getdoctors").subscribe(
+      (response)=>{
+          this.doctorarray = response
+      },(error)=>{}
+    )
+    this.userservice.getfacilites("getfacilites").subscribe(
+      (resposnes)=>{
+          this.facilitesarray = resposnes
+      },(error)=>{}
+    )
+    this.userservice.getspecailizations("getspecializations").subscribe(
+      (response)=>{
+        this.subspecializationarray = response
+      },(error)=>{}
+    )
     this.userservice.getuserbyemail("gethospitaldata",'mail').subscribe(
       (response)=>{this.mail = response[0]},(error)=>{}
     )

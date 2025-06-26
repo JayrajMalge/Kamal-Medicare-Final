@@ -14,7 +14,7 @@
             id="welcomeimagePreview" 
             alt="Click to upload"
             (click)="triggerFileInput()">
-        <img [src]="filehandle.url" *ngIf="!loginstatus" alt="">
+        <img [src]="filehandle.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview">
     </div>
     <div class="facilites">
         <a *ngFor="let fac of facilites" href="/facilites/{{fac.facilitesid}}"><app-facility-box [facility]="fac"></app-facility-box></a>

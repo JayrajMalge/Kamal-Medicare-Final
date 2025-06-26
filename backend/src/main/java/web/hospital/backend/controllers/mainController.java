@@ -140,12 +140,7 @@ public class mainController {
          return null;
         
     }*/
-    
-    @GetMapping("/")
-    public String redirect(){
-        return "index";
-    }
-    
+        
     @GetMapping("/getuser")
     public User getusers(){
        return users.findByUsername("jayrajmalge");

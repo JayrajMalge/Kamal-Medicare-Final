@@ -9,6 +9,8 @@ import { AddupdateNewsComponent } from '../addupdate-news/addupdate-news.compone
 import { FooterComponent } from '../footer/footer.component';
 import { UpdateDiseaseComponent } from "../update-disease/update-disease.component";
 import { AppointmentcheckingComponent } from "../appointmentchecking/appointmentchecking.component";
+import { Router } from '@angular/router';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-update-page',
@@ -19,8 +21,25 @@ import { AppointmentcheckingComponent } from "../appointmentchecking/appointment
 })
 export class UpdatePageComponent implements OnInit{
 
+
+  constructor(private route : Router,private userservices : UserServiceService){}
   ngOnInit(): void {
-    
+    const email = window.localStorage.getItem("email")??''
+    if(email!=''){
+      this.userservices.getuserbyemail("getbyemail",email).subscribe(
+          (response)=>{
+            if(response==null){
+              console.log('Sjsj')
+              this.route.navigate(["login"])
+            }
+            else if(response.role!='Admin'){
+                  this.route.navigate(["login"])
+              }
+          },(error)=>{}
+      )
+    } else { 
+      this.route.navigate(["login"])
+    }
   }
   isSidebarOpen : boolean = false
   operation : string = 'Add Doctor'

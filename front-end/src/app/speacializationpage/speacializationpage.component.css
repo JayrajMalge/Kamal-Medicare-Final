@@ -46,65 +46,6 @@ a{
     text-decoration: none;
 }
 
-
-/* Horizontal Scrollbar Container */
-.scrollable-container {
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    margin-bottom: 20px; /* Spacing below the scrollbar */
-    padding-bottom: 10px; /* Space for scrollbar */
-    margin-top: 1rem;
-  }
-  
-  .scrollable-content {
-    display: flex;
-    gap: 10px; /* Spacing between items */
-    padding: 10px 0; /* Padding for better appearance */
-  }
-  
-  .scroll-item {
-    flex: 0 0 auto; /* Prevent items from shrinking */
-    padding: 10px 20px;
-    background-color: #f1f1f1; /* Light gray background */
-    border-radius: 20px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 14px;
-    color: #333;
-    border: #FF4C4C 2px solid;
-  }
-  
-  .scroll-item:hover {
-    background-color: #007BFF; /* Primary color on hover */
-    color: #fff; /* White text on hover */
-    transform: translateY(-2px); /* Lift effect */
-  }
-  
-  .scroll-item.selected {
-    background-color: #0056b3; /* Darker shade for selected item */
-    color: #fff;
-    border: none;
-  }
-  
-  /* Hide default scrollbar and style it */
-  .scrollable-container::-webkit-scrollbar {
-    height: 8px; /* Height of the scrollbar */
-  }
-  
-  .scrollable-container::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Light gray track */
-    border-radius: 10px;
-  }
-  
-  .scrollable-container::-webkit-scrollbar-thumb {
-    background: #007BFF; /* Primary color for scrollbar thumb */
-    border-radius: 10px;
-  }
-  
-  .scrollable-container::-webkit-scrollbar-thumb:hover {
-    background: #0056b3; /* Darker shade on hover */
-  }
-
   .sub{
     width: 90%;
     height: auto;

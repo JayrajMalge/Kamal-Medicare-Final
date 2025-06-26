@@ -24,7 +24,7 @@
                 id="welcomeimagePreview" 
                 alt="Click to upload"
                 (click)="triggermissionFileInput()">
-            <img [src]="missionfile.url" *ngIf="!loginstatus" alt="">
+            <img [src]="missionfile.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview">
             <div class="con">
                 <h1 [contentEditable]="loginstatus" (input)="onmissionheadingchange($event)" [innerHTML]="mission.heading"></h1>
                 <p [contentEditable]="loginstatus" (input)="onmissioncontentchange($event)" [innerHTML]="mission.content"></p>
@@ -41,7 +41,7 @@
                 id="welcomeimagePreview" 
                 alt="Click to upload"
                 (click)="triggervisionFileInput()">
-            <img [src]="visionfile.url" *ngIf="!loginstatus" alt="">
+            <img [src]="visionfile.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview">
          </div>
          <div class="box">
             <input type="file" id="goalfileinput" *ngIf="loginstatus" (change)="ongoalimagechange($event)" hidden accept="image/*" >
@@ -50,7 +50,7 @@
                 id="welcomeimagePreview" 
                 alt="Click to upload"
                 (click)="triggergoalFileInput()">
-            <img [src]="goalfile.url" *ngIf="!loginstatus" alt="">
+            <img [src]="goalfile.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview" >
             <div class="con">
                 <h1 [contentEditable]="loginstatus" (input)="ongoalheadingchange($event)" [innerHTML]="goal.heading"></h1>
                 <p [contentEditable]="loginstatus" (input)="ongoalcontentchange($event)" [innerHTML]="goal.content"></p>

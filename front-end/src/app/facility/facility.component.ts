@@ -28,18 +28,18 @@ export class FacilityComponent implements OnInit{
       this.userservice.getuserbyemail("getbyemail",email).subscribe(
         (response)=>{
             this.loginstatus = response.role=='Admin'
-            this.userservice.getfacilites("getfacilites").subscribe(
-              (response)=>{
-                    this.facilites = response
-                    this.userservice.getsectionbysectionid("getsectionbysectionid",22).subscribe(
-                      (response)=>{
-                          this.facilitysection = response
-                          this.filehandle= this.imageservice.bytetoimage(this.facilitysection.imgvid,this.facilitysection.imagetype,this.facilitysection.imagename)
-                          this.mainspinner = false
-                      },(error)=>{}
-                    )
-              },(error)=>{}
-            )
+        },(error)=>{}
+      )
+      this.userservice.getfacilites("getfacilites").subscribe(
+        (response)=>{
+              this.facilites = response
+              this.userservice.getsectionbysectionid("getsectionbysectionid",22).subscribe(
+                (response)=>{
+                    this.facilitysection = response
+                    this.filehandle= this.imageservice.bytetoimage(this.facilitysection.imgvid,this.facilitysection.imagetype,this.facilitysection.imagename)
+                    this.mainspinner = false
+                },(error)=>{}
+              )
         },(error)=>{}
       )
     }

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @CrossOrigin(origins = "http://localhost:4200")
 public class pageController {
-    @RequestMapping(value = "/get")
-    public String redirect() {
-        return "forward:/index.html";
+    @GetMapping("/")
+    public String redirected(){
+        return "index";
     }
 }

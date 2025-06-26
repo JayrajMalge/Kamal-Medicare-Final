@@ -22,7 +22,7 @@
                 </select>
                 <!--<label for="appointmentdate">Appointment Date</label>
                 <input type="date" [(ngModel)]="appointment.appointmentdate" [ngModelOptions]="{standalone : true}">-->
-                <input type="submit" value="Get Appointment"  *ngIf="spinner">
+                <button type="submit" value="Get Appointment"  *ngIf="spinner">Book Appointment</button>
                 <div class="spinner" [hidden]="spinner"></div>
             </form>
         </div>

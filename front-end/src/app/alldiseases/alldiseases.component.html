@@ -8,9 +8,10 @@
         <p [contentEditable]="loginstatus" [innerHTML]="logo.content" (input)="oncontentchange($event)"></p>
     </div>
     <form >
-        <input type="text" [(ngModel)]="search" placeholder="search specialization" [ngModelOptions]="{standalone : true}" (change)="searchspe()">
-        <div class="spinner" [hidden]="search.length == 0"></div>
-    </form>
+        <input type="text" [(ngModel)]="search" placeholder="search Diseases" [ngModelOptions]="{standalone : true}" (change)="searchspe()">
+        <div class="spinner-box" *ngIf="search.length > 0">
+            <div class="spinner-gradient"></div>
+        </div>    </form>
     <div class="specializations">
        <div class="special" *ngFor="let spe of diseases">
           <div class="special-card">

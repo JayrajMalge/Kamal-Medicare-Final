@@ -9,7 +9,8 @@
        <div class="scrollable-content">
          <div *ngFor="let spe of specializationarray" class="scroll-item" (click)="selectItem(spe.speacializationid)" [class.selected]="spe.speacializationid === selectedItem">
             {{ spe.fieldname }}
-        </div>       </div>
+        </div>       
+      </div>
    </div>
 
    <!--<div class="doctors">
@@ -46,4 +47,7 @@
            <button class="arrow-btn right" (click)="nextImage()">&gt;</button>
        </div>
    </div>-->
+   <div class="doctors">
+    <a href="alldoctors" id="button">View Doctors</a>
+   </div>
 </div>

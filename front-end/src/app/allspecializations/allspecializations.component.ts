@@ -26,18 +26,18 @@ export class AllspecializationsComponent implements OnInit{
     this.userservices.getuserbyemail("getbyemail",email).subscribe(
         (response)=>{
             this.loginstatus = response.role=='Admin'
-            this.userservices.getspecailizations("getspecializations").subscribe(
-              (response)=>{
-                  this.specializationarray = response
-                  this.userservices.getsectionbysectionid("getsectionbysectionid",97).subscribe(
-                    (response)=>{
-                      this.logo = response
-                      this.mainspinner = false
-                    },(error)=>{}
-                  )
-              },(error)=>{}
-            )
         },(error)=>{}
+    )
+    this.userservices.getspecailizations("getspecializations").subscribe(
+      (response)=>{
+          this.specializationarray = response
+          this.userservices.getsectionbysectionid("getsectionbysectionid",97).subscribe(
+            (response)=>{
+              this.logo = response
+              this.mainspinner = false
+            },(error)=>{}
+          )
+      },(error)=>{}
     )
   }
 

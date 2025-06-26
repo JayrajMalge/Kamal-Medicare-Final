@@ -106,7 +106,7 @@ footer{
 .subsection ul li a,.links ul li a{
   text-decoration: none;
   color: #6C757D;
-  font-size: calc(4px + 1vw);
+  font-size: calc(3px + 1vw);
 }
 
 .about{
@@ -142,7 +142,7 @@ img {
   color: #007BFF;
   margin: 0;
   font-weight: bold;
-  font-size: calc(4px + 1vw);
+  font-size: calc(2px + 1vw);
 }
 
 .scoials{
@@ -177,9 +177,6 @@ p{
 }
 
 @media (max-width : 850px) {
-  #p{
-    font-size: calc(8px + 1vw);
-  }
   .subsection{
      width: 35%;
   }
@@ -190,7 +187,7 @@ p{
     width: 17%;
   }
   .a{
-    font-size: calc(8px + 1vw);
+    font-size: calc(2px + 1vw);
   }
 }
 
