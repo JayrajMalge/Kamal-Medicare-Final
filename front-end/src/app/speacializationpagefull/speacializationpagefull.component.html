@@ -12,13 +12,15 @@
                 id="welcomeimagePreview" 
                 alt="Click to upload"
                 (click)="triggerFileInput()">
-            <img [src]="filehandle.url" *ngIf="!loginstatus" alt="">
+            <img [src]="filehandle.url" *ngIf="!loginstatus" alt=""  id="welcomeimagePreview" >
         </div>
     </div>
-    <div class="content" *ngFor="let tre of treatments">
-        <h3>{{tre.title}}</h3>
-        <p>{{tre.description.slice(0,200)}}</p>
-        <a href="casestudies/{{tre.treatmentid}}">read full Treatment</a>
+    <div class="treatments">
+        <div class="content" *ngFor="let tre of treatments">
+            <h3>{{tre.title}}</h3>
+            <p>{{tre.description.slice(0,200)}}</p>
+            <a href="casestudies/{{tre.treatmentid}}">read full Treatment</a>
+        </div>
     </div>
 </div>
 <app-footer></app-footer>

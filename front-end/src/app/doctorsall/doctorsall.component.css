@@ -12,13 +12,13 @@
 }
 
 .content{
-    color: #132743;
+    color:#007BFF;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-decoration: underline;
 }
 
 h3{
-    font-size: calc(15px + 2.5vw);
+    font-size: calc(8px + 1vw);
 }
 
 .doctors{
@@ -34,14 +34,14 @@ h3{
 
 scrollable-container {
   width: 100%;
-  overflow-x: auto;      
   margin-bottom: 20px;   
   padding-bottom: 10px;  
 }
 
 .scrollable-content {
   display: flex;
-  gap: 20px; /* Spacing between items */
+  gap: 20px; 
+  flex-wrap: wrap;
   padding: 10px 0; /* Padding for better appearance */
 }
 
@@ -59,6 +59,7 @@ scrollable-container {
   display: flex;
   gap: 10px;       
   padding: 10px 0; 
+  border-bottom: #0056b3 2px solid;
 }
 
 .scroll-item {
@@ -66,10 +67,12 @@ scrollable-container {
   padding: 10px 20px;
   background-color: #f1f1f1; 
   border-radius: 20px; 
+  border: #FF4C4C 2px solid;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-size: 14px;
   color: #333; 
+
 }
 
 .scroll-item:hover {

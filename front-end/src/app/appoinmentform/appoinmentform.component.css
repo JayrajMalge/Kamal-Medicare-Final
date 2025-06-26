@@ -312,3 +312,15 @@
     margin-left: 35%; 
   }
 }
+
+button{
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #0056b3 , #007BFF);
+  border-radius: 25px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 0.5rem;
+}

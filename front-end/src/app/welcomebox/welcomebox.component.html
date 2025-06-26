@@ -26,9 +26,9 @@
              <img *ngFor="let img of cas.casestudyimages" [src]="img.url" alt="">
           </div>
       </div>
+      <h2>Performed Doctors</h2>
    </div>
    <div class="doctors">
-    <h2>Performed Doctors</h2>
       <app-doctor-box *ngFor="let doc of Doctor" [doc]="doc"></app-doctor-box>
    </div>
 </div>

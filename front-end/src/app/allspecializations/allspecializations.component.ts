@@ -24,26 +24,22 @@ export class AllspecializationsComponent implements OnInit
   ngOnInit(): void
   {
     this.mainspinner = true
-    const email = window.localStorage.getItem("email") ?? ''
-    this.userservices.getuserbyemail("getbyemail", email).subscribe(
-      (response) =>
-      {
-        this.loginstatus = response.role == 'Admin'
-
-      }, (error) => { }
+    const email = window.localStorage.getItem("email")??''
+    this.userservices.getuserbyemail("getbyemail",email).subscribe(
+        (response)=>{
+            this.loginstatus = response.role=='Admin'
+        },(error)=>{}
     )
     this.userservices.getspecailizations("getspecializations").subscribe(
-      (response) =>
-      {
-        this.specializationarray = response
-        this.userservices.getsectionbysectionid("getsectionbysectionid", 97).subscribe(
-          (response) =>
-          {
-            this.logo = response
-            this.mainspinner = false
-          }, (error) => { }
-        )
-      }, (error) => { }
+      (response)=>{
+          this.specializationarray = response
+          this.userservices.getsectionbysectionid("getsectionbysectionid",97).subscribe(
+            (response)=>{
+              this.logo = response
+              this.mainspinner = false
+            },(error)=>{}
+          )
+      },(error)=>{}
     )
   }
 
