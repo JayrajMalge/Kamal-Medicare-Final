@@ -1,0 +1,43 @@
+<div class="main" *ngIf="operation=='Add News'">
+    <form (ngSubmit)="newssubmitform(operation)">
+      <label for="News-Title">News Title *</label>
+      <input type="text" name="News-Title" placeholder="Enter your News name" [(ngModel)]="newsname">
+  
+      <label for="News-Description">News Description *</label>
+      <textarea name="News-Description" cols="30" rows="10" placeholder="Write something about News" [(ngModel)]="newsdescription"></textarea>
+  
+      <label for="News-picture">Add News Picture</label>
+      <input type="file"  name="News-picture" (change)="newsimagesinput($event)">
+
+      <label for="">Date</label>
+      <input type="date" [(ngModel)]="newsdate" id="">
+
+      <label for="News-type">News Type *</label>
+      <select name="News-type" [(ngModel)]="newstype" >
+         <option value="Blog">Blog</option>
+         <option value="News">News</option>
+         <option value="Research">Research</option>
+         <option value="Treatments">Treatments</option>
+         <option value="Media">Media</option>
+      </select>
+      
+      <button type="submit">{{operation.split(" ")[0]}}</button>
+      <div class="spinner" [hidden]="spinner"></div>
+    </form>
+</div>
+
+<div class="main" *ngIf="operation=='Confirm Deletion'">
+  <h3>{{selectednews.title}}</h3>
+  <p>{{selectednews.description}}</p>
+  <p>{{selectednews.newsdate}}</p>
+  <button (click)="confirmselecttodelete()">Delete</button>
+</div>
+
+<div class="main" *ngIf="operation=='Delete News'">
+  <form (submit)="selecttodelete()">
+    <select name="newssid" [(ngModel)]="updatevalue">
+      <option *ngFor="let ne of news" [value]="ne.newsid">{{ne.title}}</option>
+    </select>
+    <button (click)="selecttodelete()">Delete</button>
+  </form>
+</div>

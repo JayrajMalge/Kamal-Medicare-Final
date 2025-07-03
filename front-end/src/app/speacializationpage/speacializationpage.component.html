@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="spinner-box" *ngIf="mainspinner">
+    <div class="spinner-gradient"></div>
+</div>
+<div class="main" *ngIf="!mainspinner">
+    <div class="content">
+        <h2>{{specialization.fieldname}}</h2>
+        <p>{{specialization.description}}</p>
+        <div class="scrollable-container">
+            <div class="scrollable-content">
+                <div *ngFor="let spe of subspecialization" class="scroll-item" (click)="selectItem(spe.subspeacializationid)" [class.selected]="spe.subspeacializationid === selectedItem">
+                    {{ spe.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub" *ngIf="subspecialization.length > 0">
+        <div class="con">
+            <h3>{{selectedspe.name}}</h3>
+            <p>{{selectedspe.description}}</p>
+        </div>
+        <div class="carousel">
+            <div class="slide">
+              <img [src]="currentimages[currentIndex].url" alt="Slide Image" />
+            </div>
+            <button class="prev" (click)="prevSlide()">&#10094;</button>
+            <button class="next" (click)="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+    <div class="speacializationsdoctors" *ngIf="Doctors.length > 0">
+        <h1>Doctors in specialized </h1>
+        <div class="doctors">
+            <app-doctor-box *ngFor="let doc of Doctors" [doc]="doc.doctor"></app-doctor-box>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

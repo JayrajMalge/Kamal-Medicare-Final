@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="spinner-box" *ngIf="mainspinner">
+    <div class="spinner-gradient"></div>
+</div>
+<div class="main" *ngIf="!mainspinner">
+    <div class="content">
+        <div class="con">
+            <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="facilitysection.heading"></h1>
+            <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="facilitysection.content"></p>
+        </div>
+        <input type="file" id="welcomefileinput" *ngIf="loginstatus" (change)="onwelcomechange($event)" hidden accept="image/*" >
+        <img [src]="filehandle.url" 
+            *ngIf="loginstatus"
+            id="welcomeimagePreview" 
+            alt="Click to upload"
+            (click)="triggerFileInput()">
+        <img [src]="filehandle.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview">
+    </div>
+    <div class="facilites">
+        <a *ngFor="let fac of facilites" href="/facilites/{{fac.facilitesid}}"><app-facility-box [facility]="fac"></app-facility-box></a>
+    </div>
+</div>
+<app-footer></app-footer>

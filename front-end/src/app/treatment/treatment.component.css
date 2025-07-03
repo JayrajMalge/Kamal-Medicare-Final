@@ -1,0 +1,232 @@
+
+/* Container */
+.main ,.formmain{
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 600px;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  /* Form Labels */
+  .main form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 5px;
+  }
+  
+  /* Form Inputs */
+  .main form input[type="text"],
+  .main form input[type="number"],
+  .main form input[type="time"],
+  .main form input[type="file"],
+  .main form input[type='date'],
+  .main form input[type='submit'],
+  .main form select,
+  .main form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #007BFF;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .main form input:focus,
+  .main form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 170, 160, 0.3);
+  }
+  
+  /* Textarea */
+  .main form textarea {
+    resize: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* File Input Styling */
+  .main form input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  /* Submit Button */
+  .main form button {
+    background-color: #007BFF;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main form button:hover {
+    background-color: #007BFF;
+  }
+ 
+  #view{
+    color: #FF4C4C;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    background-color: #007BFF;
+    margin-bottom: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+
+  
+  
+  .container {
+    min-width: 600px;
+    max-width: 800px;  
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .treatment-card {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .treatment-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .treatment-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .treatment-details p,
+  .patient-info p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .patient-info {
+    background: #FF4C4C;
+    color: #007BFF;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .case-studies {
+    background: #007BFF;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .case-study-card {
+    background: #ffffff;
+    color: #007BFF;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  
+  .case-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .case-description {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .image-item button {
+    background: #FF4C4C;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    color: #007BFF;
+    font-weight: bold;
+  }
+  
+  .image-item button:hover {
+    background: #007BFF;
+    color: white;
+  }
+  
+  
+  button[type='submit'] {
+    background: #FF4C4C;
+    color: #007BFF;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button[type='submit']:hover {
+    background: #007BFF;
+    color: white;
+  }
+
+  @media (max-width : 650px) {
+    .main{
+      min-width: 400px;
+      max-width: 400px;
+    }
+    .container{
+      min-width: 400px;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width : 425px) {
+    .main{
+      min-width: 300px;
+      max-width: 300px;
+    }
+    .container{
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+
+  .forms{
+    border: 2px #007BFF solid;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 5px;
+  }

@@ -1,0 +1,24 @@
+<div class="dialog-overlay" *ngIf="isOpen">
+    <div class="dialog-box">
+      <div class="dialog-header">
+        <h3>Selected Images</h3>
+        <button class="close-btn" (click)="closeDialog()">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <div class="carousel">
+          <button class="arrow-btn left" (click)="prevImage()">
+            &lt;
+          </button>
+          <img [src]="images[currentImageIndex]" alt="Carousel Image" class="carousel-image" />
+          <button class="arrow-btn right" (click)="nextImage()">
+            &gt;
+          </button>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="dialog-btn secondary" (click)="closeDialog()">Close</button>
+      </div>
+    </div>
+</div>
+  
+

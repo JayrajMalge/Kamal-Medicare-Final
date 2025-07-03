@@ -1,0 +1,27 @@
+
+
+<div class="carousel">
+    <div class="slide">
+      <!--<img [src]="filehandles[currentIndex].url" alt="Slide Image" />-->
+      <!--<div class="content">
+        <h2>{{ carouselData[currentIndex].heading }}</h2>
+        <p>{{ carouselData[currentIndex].paragraph }}</p>
+      </div>-->
+      <input type="file" id="visionfileinput" *ngIf="loginstatus" (change)="onchange($event,currentIndex)" hidden accept="image/*" >
+            <img [src]="filehandles[currentIndex].url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggerFileInput()">
+            <img [src]="filehandles[currentIndex].url" *ngIf="!loginstatus" alt="">
+    </div>
+    <button class="prev" (click)="prevSlide()">&#10094;</button>
+    <button class="next" (click)="nextSlide()">&#10095;</button>
+</div>
+
+<app-appoinmentform 
+    [isOpen]="isappointmentopen"
+    (close)="handleAppointmentClose()"
+    (formSubmit)="handleFormAppointmentSubmit()"
+    ></app-appoinmentform>
+

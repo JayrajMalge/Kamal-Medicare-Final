@@ -1,0 +1,78 @@
+.appoint {
+    background-color: #ffb5b5;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.appoint:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    color: #132743;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+p {
+    color: #132743;
+    font-size: 16px;
+    margin: 3px 0;
+    font-weight: 500;
+}
+
+input {
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:first-of-type {
+    background-color: #132743;
+    color: white;
+}
+
+button:first-of-type:hover {
+    background-color: #0f1f33;
+}
+
+button:last-of-type {
+    background-color: #ffb5b5;
+    color: white;
+}
+
+button:last-of-type:hover {
+    background-color: #ffb5b5;
+}
+
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffb5b5; /* Spinner color */
+    border-top: 5px solid transparent; /* Transparent for spin effect */
+    border-radius: 50%;
+    margin-left: 45%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

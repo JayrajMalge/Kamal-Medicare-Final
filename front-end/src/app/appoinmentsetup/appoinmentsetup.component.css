@@ -1,0 +1,75 @@
+
+.carousel {
+    position: relative;
+    width: 100%; /* Full viewport width */
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: relative;
+    width: 100%;
+  }
+  
+  .slide img,#welcomeimagePreview {
+    width: 100%;
+    min-height: 40%; 
+    max-height: 40%;
+    display: block;
+  }
+
+  #visionfileinput{
+    display: none;
+  }
+  
+  .content {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: #007BFF;
+    padding: 10px 10px;
+    border-radius: 5px;
+    height: auto;
+    min-width: 40%; /* Limit content width for better readability */
+  }
+  
+  .content h2 {
+    margin: 0;
+    font-size: calc(10px + 1vw);
+  }
+  
+  .content p {
+    margin: 5px 0 0;
+    font-size: calc(8px + 1vw);
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+
+  @media (max-width : 520px) {
+    .slide img,#welcomeimagePreview{
+        max-height: 400px;
+    }
+}

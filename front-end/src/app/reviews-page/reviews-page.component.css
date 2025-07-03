@@ -1,0 +1,27 @@
+.main{
+    width: 100%;
+    border-top: #132743 6px solid;
+    height: max-content;
+    background-color: #ffb5b5;
+    border-bottom: #132743 6px solid;
+}
+.content{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+}
+.reviews{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+
+h1,p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #132743;
+}

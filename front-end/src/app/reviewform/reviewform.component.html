@@ -1,0 +1,31 @@
+<div class="dialog-overlay" *ngIf="isOpen">
+    <div class="dialog-box">
+      <div class="dialog-header">
+        <h3>Review </h3>
+        <button class="close-btn" (click)="closeDialog()">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <form  >
+          <div class="form-group">
+            <label for="patient">Your Name</label>
+            <input type="text" name="patient" [(ngModel)]="formData.name" [ngModelOptions]="{standalone : true}" (change)="checkvaildpatient()">
+            <label for="patient" >Your Mobile No</label>
+            <input type="number" [(ngModel)]="formData.phone" [ngModelOptions]="{standalone : true}" (change)="checkvaildpatient()">
+            <label for="message">Your Experience</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="formData.message"
+              class="textarea"
+              required
+              [ngModelOptions]="{standalone : true}"
+            ></textarea>
+          </div>
+          <button type="submit" class="dialog-btn primary" (click)="onSubmit()">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

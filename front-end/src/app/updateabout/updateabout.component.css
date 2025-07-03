@@ -1,0 +1,92 @@
+.main {
+    background-color: #ffb5b5;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 600px;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  /* Form Labels */
+  .main form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #132743;
+    margin-bottom: 5px;
+  }
+  
+  /* Form Inputs */
+  .main form input[type="text"],
+  .main form input[type="number"],
+  .main form input[type="time"],
+  .main form input[type="file"],
+  .main form input[type='date'],
+  .main form input[type='submit'],
+  .main form select,
+  .main form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #132743;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .main form input:focus,
+  .main form textarea:focus {
+    border-color: #132743;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 170, 160, 0.3);
+  }
+  
+  /* Textarea */
+  .main form textarea {
+    resize: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* File Input Styling */
+  .main form input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  /* Submit Button */
+  .main form button {
+    background-color: #132743;
+    color: #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main form button:hover {
+    background-color: #132743;
+  }
+
+  @media (max-width : 650px) {
+    .main{
+      min-width: 400px;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width : 425px) {
+    .main{
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }

@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="main">
+    <div class="content">
+        <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.heading"></h1>
+        <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="heading.content"></p>
+    </div>
+    <div class="reviews">
+        <app-reviewbox *ngFor="let review of reviews | slice:0:5"  [review]="review"></app-reviewbox>
+    </div>
+</div>
+<app-footer></app-footer>

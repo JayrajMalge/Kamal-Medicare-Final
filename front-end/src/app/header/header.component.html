@@ -1,0 +1,120 @@
+
+<nav>
+    <a href="/main" id="logoroute"><div class="logo">
+        <img src="../../assets/logoicon.png" style="width: 60px; height: auto;">
+        <p class="icon" [contentEditable]="role=='Admin'" (input)="checkinput($event)" [innerHTML]="logo.content"></p>
+      </div>
+    </a>
+    <div class="main">
+        <ul>
+            <li class="fachover" >
+                <a>Facilites</a>
+                <div class="facdrop">
+                    <p>Our Facilites</p>
+                    <ul>
+                       <li><a *ngFor="let fac of facilites" href="/facilites/{{fac.facilitesid}}">{{fac.facilityname}}</a></li>
+                    </ul>
+                    <a href="/availablefacilites">explore more</a>
+                </div>
+            </li>
+            <li class="fachover"><a >Specialization</a>
+                <div class="facdrop">
+                    <p > Our Specializations </p>
+                    <ul>
+                        <a *ngFor="let spe of specializationarray" href="/speacialization/{{spe.speacializationid}}" >-{{spe.fieldname}}</a>
+                    </ul>
+                    <a href="/allspecializations" >explore more</a>
+                </div>
+            </li>
+            <li class="fachover"><a >Disease</a>
+                <div class="facdrop">
+                    <p>Diseases</p>
+                    <ul>
+                        <a *ngFor="let dis of diseasearray" href="/diseases/{{dis.diseaseid}}" >--{{dis.name}}</a>
+                    </ul>
+                    <a href="/alldiseases" >explore more</a>
+                </div>
+            </li>
+            <li class="fachover" ><a href="/about-us">About Us</a></li>
+            <li class="fachover" ><a >Patient Guide</a>
+                <div class="facdrop">
+                    <p style="font-size: 1rem;">explore</p>
+                    <ul style="display: flex;flex-direction: column;gap: 2px;">
+                        <a href="news-blogs/Blog">Blog</a>
+                        <a href="news-blogs/News">News</a>
+                        <a href="news-blogs/Research">Research</a>
+                        <a href="/treatments">Treatments</a>
+                        <a href="news-blogs/Media">Media</a>
+                    </ul>
+                </div>
+            </li>
+            <!-- <li class="fachover" ><a href="/login" id="Sign-In" *ngIf="!loginstatus">sign-in</a></li> -->
+        </ul>
+    </div>
+    <button class="btn" (click)="openAppointment()">Book Appointment</button>
+    <!--<div class="small_dropdown">
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="dropdown-content" >
+            <a href="/availablefacilites">Facilities</a>
+            <a href="/allspecializations" class="menspe">Specialization</a>
+            <a *ngIf="loginstatus" (click)="openprofiledialog()">profile</a>
+            <a *ngIf="role=='Admin'" href="/update-page"  >update section</a>
+            <a href="/alldiseases">Diseases</a>
+            <a href="/about-us" >About Us</a>
+            <a (click)="openAppointment()" >Appoinments</a>
+            <a href="/login">sign-in</a>
+            <a *ngIf="role=='Admin'" href="/updatesections">update sections</a>
+          </div>
+    </div>  -->
+
+
+<button class="menu-button" (click)="openMenu()">☰</button>
+
+<div class="side-menu" [ngClass]="{'open': isMenuOpen}" *ngIf="isMenuOpen">
+  <div class="close-btn" (click)="closeMenu()">✕</div>
+
+  <div class="allitems">
+    <div *ngFor="let item of menuItems; let i = index" class="menu-item">
+        <div class="menu-label" (click)="toggleMenu(i)">
+          {{ item.label }}
+          <span class="arrow" [ngClass]="{'open': item.isOpen}">></span>
+        </div>
+        <div class="dropdownmenubar" *ngIf="item.isOpen">
+          <div class="alldropdownsubitems">
+            <div *ngFor="let subItem of subItems" class="dropdown-item">
+                <a (click)="changeroute(item.label,subItem.id)" >{{ subItem.name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="othitem">
+    <a *ngIf="role=='Admin'" href="/update-page">Update Section</a>
+    <a href="/about-us">About Us</a>
+    <a (click)="openAppointment()">Book Appointment</a>
+  </div>
+</div>
+</nav>
+
+
+
+<app-reviewform
+[title]="'Submit Your Feedback'"
+[isOpen]="isDialogOpen"
+(close)="handleClose()"
+(formSubmit)="handleFormSubmit($event)"
+></app-reviewform>
+
+<app-appoinmentform
+[isOpen]="isappointmentopen"
+(close)="handleAppointmentClose()"
+(formSubmit)="handleFormAppointmentSubmit()"
+></app-appoinmentform>
+
+<app-profile [isOpen]="isprofile" [user]="user" (close)="handleprofile()" >
+
+</app-profile>

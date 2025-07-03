@@ -1,0 +1,256 @@
+
+
+.main {
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 600px;
+    max-width: 800px;
+        margin: auto;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  
+  .main form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 5px;
+  }
+  
+  /* Form Inputs */
+  .main form input[type="text"],
+  .main form input[type="number"],
+  .main form input[type="time"],
+  .main form input[type="file"],
+  .main form input[type='date'],
+  .main form input[type='submit'],
+  .main form select,
+  .main form textarea{
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #007BFF;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+
+  .main form .des_div{
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    color: #007BFF;
+  }
+  
+  .main form input:focus,
+  .main form .des_div:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 170, 160, 0.3);
+  }
+  
+  /* Textarea */
+  .main form textarea ,
+  .main form .des_div{
+    resize: none;
+    font-family: Arial, sans-serif;
+    min-height: 200px;
+    max-height: max-content;
+  }
+  
+  /* File Input Styling */
+  .main form input[type="file"] {
+    border: none;
+    padding: 0;
+  }
+  
+  /* Submit Button */
+  .main form button {
+    background-color: #007BFF;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main form button:hover {
+    background-color: #007BFF;
+  }
+  
+  .imageinput{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  a{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007BFF;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  }
+
+  .forms{
+    border-radius: 0.2rem;
+    border: #007BFF 3px solid;
+    padding: 0.3rem 0.3rem 0 0.3rem;
+    margin-bottom: 0.2rem;
+  }
+
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #FF4C4C; /* Spinner color */
+    border-top: 5px solid transparent; /* Transparent for spin effect */
+    border-radius: 50%;
+    margin-left: 40%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #view{
+    color: #FF4C4C;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+    background-color: #132743;
+    margin-bottom: 0.9rem;
+    margin-top: 0.3rem;
+  }
+
+
+
+  .specialization-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #ddd;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  
+  .title {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+  }
+  
+  .specialization-card {
+    background: #FF4C4C;
+    border: 1px solid #007BFF;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .specialization {
+    margin-bottom: 20px;
+  }
+  
+  .specialization h2 {
+    color: #007BFF;
+    margin-bottom: 10px;
+  }
+  
+  .specialization .description {
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .subspecializations h3 {
+    color: #007BFF;
+    margin-bottom: 10px;
+  }
+  
+  .subspecializations ul {
+    padding-left: 20px;
+  }
+  
+  .subspecializations li {
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .subspecializations h4 {
+    color: #007BFF;
+    margin-bottom: 5px;
+  }
+  
+  .subspecializations p {
+    color: #555;
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .specialization-card {
+      padding: 15px;
+    }
+  
+    .specialization h2 {
+      font-size: 20px;
+    }
+  
+    .subspecializations h4 {
+      font-size: 18px;
+    }
+  }
+  
+
+  #btn{
+    border-radius: 2rem;
+    color: #ddd;
+    background-color: #007BFF;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width : 650px) {
+    .main{
+      min-width: 400px;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width : 425px) {
+    .main{
+      min-width: 300px;
+      max-width: 300px;
+    }
+  }
+
+  [contenteditable] {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 8px;
+  }

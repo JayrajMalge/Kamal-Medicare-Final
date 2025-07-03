@@ -1,0 +1,37 @@
+.main{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f0f8ff;
+    justify-content: center;
+    gap: 0.7rem;
+    border-bottom: #ddd 6px solid;
+    border-top: #ffb5b5 6px solid;
+}
+
+.bloges{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    z-index: 10;
+}
+
+
+h1{
+    font-size: calc(6px + 1vw);
+    margin: 0;
+    color: #007BFF;
+    text-decoration: underline #0056b3;
+}
+p{
+    font-size: calc(4px + 1vw);
+    color: #6C757D;
+}

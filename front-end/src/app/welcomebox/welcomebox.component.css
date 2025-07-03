@@ -1,0 +1,55 @@
+
+.main{
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   align-items: center;
+   justify-content: center;
+   padding-top: 3rem;
+   background-color: #f0f8ff;
+   padding-bottom: 3rem;
+}
+
+.content,.casestudies{
+    width: 80%;
+}
+
+h2,h4{
+    width: 100%;
+    height: auto;
+    font-size: calc(9px + 1vw);
+    color: #007BFF;
+}
+p{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    color: #6C757D;
+    font-size: calc(7px + 1vw);
+}
+
+.images{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.images img{
+    width: calc(100px + 1vw);
+    height: calc(100px + 1vw);
+    object-fit: contain;
+    border-radius: 1rem;
+}
+
+.doctors{
+    width: 80%;
+    justify-content: center;
+    height: auto;
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}

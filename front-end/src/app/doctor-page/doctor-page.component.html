@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div class="spinner-box" *ngIf="mainspinner">
+  <div class="spinner-gradient"></div>
+</div>
+<div class="main" *ngIf="!mainspinner">
+  <div class="about">
+      <div class="profile">
+        <img [src]="filehandle.url" alt="Doctor's Profile Picture" class="profile-image">
+        <div class="information">
+          <h1 class="doctor-name">{{doctor.name}}</h1>
+          <div class="info">
+            <h4 class="info-title" *ngFor="let edu of education;let i=index" >{{edu.degree}}{{i==education.length?'':'/'}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="car">
+        <h4 style="color: #007BFF;">About</h4>
+        <p>{{doctor.about}}</p>
+      </div>
+  </div>
+  
+  <div class="tabs-container">
+      <div class="tab-content">
+          <div >
+              <div class="content" >
+                  <h2 class="tab-title">Experience</h2>
+                  <div class="info" *ngFor="let exp of experiences">
+                    <ul>
+                      <li><h4 class="info-title">{{exp.years}} years of Experience in {{exp.field}}</h4></li>
+                    </ul>
+                  </div>
+              </div>
+              <div class="content">
+                  <h2 class="tab-title">Specialization</h2>
+                  <div class="specializations">
+                      <h4 class="info-title" *ngFor="let spe of doctorspecializations">Specialized in {{spe.speacialization.fieldname}}</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <form action="">
+      <input type="submit" (click)="openAppointment()" value="Book Appointment" class="appointment-button">
+  </form>
+</div>
+
+<app-appoinmentform 
+[isOpen]="isappointmentopen"
+(close)="handleAppointmentClose()"
+(formSubmit)="handleFormAppointmentSubmit()"
+></app-appoinmentform>
+
+<app-footer></app-footer>
+
+<!--<div class="content">
+                  <div class="treatments" *ngFor="let treat of showtreatmentsarray; let i = index">
+                      <h4 class="info-title">{{treat.treatment.title}}</h4>
+                      <p class="info-description">{{treat.treatment.description}}</p>
+                      <p class="info-date">{{treat.treatment.tratmentdate}}</p>
+                      <div class="patient">
+                          <h4 class="info-title">{{treat.treatment.patient1.name}}</h4>
+                          <p class="info-description">{{treat.treatment.patient1.age}}</p>
+                      </div>
+                      <div class="casestudies" *ngFor="let case of treat.casestudiesarray">
+                          <h4 class="info-title">{{case.casestudy.title}}</h4>
+                          <p class="info-description">{{case.casestudy.description}}</p>
+                          <div class="finalresult">
+                              <h4 class="info-title">Final Result</h4>
+                              <p class="info-description">{{case.casestudy.result}}</p>
+                              <div class="images">
+                                  <img *ngFor="let img of case.casestudyimages" [src]="img.url" alt="Case Study Image" class="case-image">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>-->

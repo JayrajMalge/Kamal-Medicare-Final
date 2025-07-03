@@ -1,0 +1,93 @@
+
+<!--<div class="main" *ngIf="operation=='Add Facilites' || editmode" >
+    <form  (submit)="facilitysubmitform(operation)">
+      <label for="Facilite-name">Facilite Name</label>
+      <input type="text" name="Facilite-name" maxlength="20" placeholder="Enter your Facilite name Within 20 characters" [(ngModel)]="facility.facilityname">
+  
+      <label for="Facilite Description">About</label>
+      <textarea name="about" cols="30" rows="10" placeholder="Write something about Facilite" [(ngModel)]="facility.description" ></textarea>
+  
+      <label for="Facilite Picture">Add Facilite Picture</label>
+      <input type="file" (change)="faciltiesimagesinput($event)" multiple name="FacilitePicture">
+      <button type="button" [hidden]="!editmode" (click)="openDialog()">view images</button>
+  
+      <label for="FaciliteType">Facilite Type</label>
+      <input type="text" placeholder="Enter Facilite Type in 20 Characters" [(ngModel)]="facility.facilitytype" maxlength="20" name="FaciliteType" id="">
+  
+      <button type="submit">{{operation.split(" ")[0]}}</button>
+      <div class="spinner" [hidden]="spinner"></div>
+    </form>
+</div>-->
+<div class="main" *ngIf="operation=='Add Facilites' || editmode">
+  <form #facilityForm="ngForm" (submit)="facilitysubmitform(operation,facilityForm)">
+    <label for="Facilite-name">Facilite Name</label>
+    <input type="text" name="Facilite-name" maxlength="20" placeholder="Enter your Facilite name Within 20 characters" [(ngModel)]="facility.facilityname" required>
+    
+    <label for="Facilite Description">About</label>
+    <textarea name="about" cols="30" rows="10" placeholder="Write something about Facilite" [(ngModel)]="facility.description" required></textarea>
+    
+    <label for="Facilite Picture">Add Facilite Picture</label>
+    <input type="file" (change)="faciltiesimagesinput($event)" multiple name="FacilitePicture" required>
+    <button type="button" [hidden]="!editmode" (click)="openDialog()">view images</button>
+    
+    <label for="FaciliteType">Facilite Type</label>
+    <input type="text" placeholder="Enter Facilite Type in 20 Characters" [(ngModel)]="facility.facilitytype" maxlength="20" name="FaciliteType" required>
+    
+    <button type="submit" [disabled]="!facilityForm.form.valid">{{operation.split(" ")[0]}}</button>
+    
+    <div class="spinner" [hidden]="spinner"></div>
+  </form>
+</div>
+
+<div class="main" *ngIf="operation=='Update Facilites'" [hidden]="editmode">
+    <form action="" (submit)="turneditmode()">
+      <select name="seleted-doctor" id="" [(ngModel)]="updatevalue">
+        <option *ngFor="let fac of facilitesarray" [value]="fac.facilitesid">{{fac.facilityname}}</option>
+      </select>
+      <input type="submit" name="Update Doctor" value="Update Facilites" >
+      <div class="spinner" [hidden]="spinner"></div>
+   </form>
+</div>
+
+<div class="main" *ngIf="operation=='Delete Facilites'">
+  <form action="" (submit)="deletefacilites()">
+    <select name="seleted-doctor" id="" [(ngModel)]="updatevalue">
+      <option *ngFor="let fac of facilitesarray" [value]="fac.facilitesid">{{fac.facilityname}}</option>
+    </select>
+    <input type="submit" name="Update Doctor" [value]="operation.split(' ')[0]" >
+    <div class="spinner" [hidden]="spinner"></div>
+ </form>
+</div>
+
+<div class="facilities-container" *ngIf="operation=='Confirm Deletion'">
+  <h1 class="title">Facilities Information</h1>
+  <div class="facility-card" >
+    <div class="facility-details">
+      <h2>{{ facility.facilityname }}</h2>
+      <p class="description">{{ facility.description }}</p>
+      <p><strong>Availability:</strong> {{ facility.availability }}</p>
+      <p><strong>Type:</strong> {{ facility.facilitytype }}</p>
+    </div>
+    <div class="facility-images">
+      <h3>Images</h3>
+      <div class="images">
+        <img 
+          *ngFor="let image of filehandles" 
+          [src]="image.url" 
+          class="facility-image" 
+        />
+      </div>
+    </div>
+  </div>
+  <form (submit)="deletefacility()">
+     <button id="btn">delete</button>
+  </form>
+</div>
+
+
+
+<app-image
+  [images]="urls"
+  [isOpen]="isDialogOpen" 
+  (confirm)="handleConfirm()" 
+  (close)="handleClose()"></app-image>

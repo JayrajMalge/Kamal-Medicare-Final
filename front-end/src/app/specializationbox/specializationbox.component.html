@@ -1,0 +1,49 @@
+<div class="main">
+    <div class="content">
+        <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="heading.content"></h1>
+        <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="content.content"></p>
+    </div>
+    <div class="scrollable-container">
+        <div class="scrollable-content">
+            <div *ngFor="let spe of specializationarray" class="scroll-item" (click)="selectItem(spe.speacializationid)" [class.selected]="spe.speacializationid === selectedItem">
+                {{ spe.fieldname }}
+            </div>
+        </div>
+    </div>
+    <div class="specialization-carousel">
+        <button class="nav-button prev" (click)="prev()" [disabled]="currentIndex === 0">
+          <i class="fas fa-chevron-left"><</i>
+        </button>
+      
+        <div class="specialization-container">
+          <app-specialization 
+            *ngFor="let spe of visibleItems" 
+            [Specialization]="spe">
+          </app-specialization>
+        </div>
+      
+        <button class="nav-button next" (click)="next()" [disabled]="currentIndex >= totalPages - 1">
+          <i class="fas fa-chevron-right">></i>
+        </button>
+    </div>
+    <div class="dots-container" *ngIf="totalPages > 1">
+        <span 
+          *ngFor="let dot of [].constructor(totalPages); let i = index"
+          class="dot" 
+          [class.active]="i === currentIndex"
+          (click)="goToPage(i)">
+        </span>
+   </div>
+    <!--<div class="specialization">
+        <app-specialization *ngFor="let spe of subspecializationarray| slice:0:3; let i = index" [Specialization]="spe"  ></app-specialization>
+    </div>
+    <div class="dialog-body">
+        <div class="carousel">
+           <button class="arrow-btn left" (click)="prevImage()">&lt;
+           </button>-->
+           <!--<app-specialization [Specialization]="subspecializationarray[currentImageIndex]"></app-specialization>
+           <button class="arrow-btn right" (click)="nextImage()">&gt;
+           </button>
+        </div>
+     </div>>-->
+</div>

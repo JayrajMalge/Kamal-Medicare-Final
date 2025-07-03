@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="sidebar" [class.open]="isSidebarOpen">
+      <div class="sidebar-header">
+        <h3>Update Bar</h3>
+        <button class="close-btn" (click)="toggleSidebar()">Close</button>
+      </div>
+      <ul class="sidebar-menu">
+        <li *ngFor="let item of menuItems" class="menu-item">
+          <a (click)="openform(item.name)">{{ item.name }}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <button class="menu-btn" (click)="toggleSidebar()">☰ Menu</button>
+    </div>
+    <div class="logo">
+      <p>Kamal Medicare</p>
+    </div>
+  </div>
+<div class="main">
+   <app-updateabout [operation]="operation"></app-updateabout>
+   <app-updatecontact [operation]="operation"></app-updatecontact>
+   <app-udatepagesection [operation]="operation"></app-udatepagesection>
+</div>
+
+<app-footer></app-footer>

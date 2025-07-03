@@ -1,0 +1,32 @@
+
+<div class="dialog-overlay" *ngIf="isOpen">
+    <div class="dialog-box">
+      <div class="dialog-header">
+        <h3 [contentEditable]="loginstatus" [innerHTML]="appointmentsection.heading"  (input)="onheadingchange($event)"></h3>
+        <button class="close-btn" (click)="closeDialog()">&times;</button>
+      </div>
+      <div class="dialog-body">
+        <div class="main">
+            <form (submit)="submitapppointment()">
+                <label for="mail">Mobile no *</label>
+                <input type="text" name="mail" [(ngModel)]="phone" [ngModelOptions]="{standalone : true}">
+                <label for="mail">Mail</label>
+                <input type="text" name="mail" [(ngModel)]="email" [ngModelOptions]="{standalone : true}">
+                <label for="doctor">Select Doctor *</label>
+                <select name="doctor" [(ngModel)]="selecteddoctorid" [ngModelOptions]="{standalone : true}">
+                    <option *ngFor="let doc of doctorarray" [value]="doc.doctorid">{{doc.name}}</option>
+                </select>
+                <label for="speacialization">Select Specialization</label>
+                <select name="specialization" [(ngModel)]="selectedspecializationid" [ngModelOptions]="{standalone : true}">
+                  <option *ngFor="let doc of specializationarray" [value]="doc.speacializationid">{{doc.fieldname}}</option>
+                </select>
+                <!--<label for="appointmentdate">Appointment Date</label>
+                <input type="date" [(ngModel)]="appointment.appointmentdate" [ngModelOptions]="{standalone : true}">-->
+                <button type="submit" value="Get Appointment"  *ngIf="spinner">Book Appointment</button>
+                <div class="spinner" [hidden]="spinner"></div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

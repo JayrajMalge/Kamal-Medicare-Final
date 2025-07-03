@@ -1,0 +1,86 @@
+<app-header></app-header>
+<div class="spinner-box" *ngIf="mainspinner">
+    <div class="spinner-gradient"></div>
+</div>
+<div class="main" *ngIf="!mainspinner">
+    <div class="about">
+        <div class="content">
+            <h1 [contentEditable]="loginstatus" [innerHTML]="about.heading" (input)="onaboutheadingchange($event)"></h1>
+            <p  [contentEditable]="loginstatus"  [innerHTML]="about.content" (input)="onaboutcontentchange($event)"></p>
+        </div>
+        <input type="file" id="fileInput" (change)="onchange($event)" hidden accept="image/*">
+        <img [src]="aboutfile.url" 
+        *ngIf="loginstatus"
+            id="imagePreview" 
+            alt="Click to upload"
+            (click)="triggerFileInput()">
+        <img *ngIf="!loginstatus" [src]="aboutfile.url" alt="" id="imagePreview">
+    </div>
+    <div class="boxes">
+        <div class="box">
+            <input type="file" id="missionfileinput" *ngIf="loginstatus" (change)="onmissionimagechange($event)" hidden accept="image/*" >
+            <img [src]="missionfile.url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggermissionFileInput()">
+            <img [src]="missionfile.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview">
+            <div class="con">
+                <h1 [contentEditable]="loginstatus" (input)="onmissionheadingchange($event)" [innerHTML]="mission.heading"></h1>
+                <p [contentEditable]="loginstatus" (input)="onmissioncontentchange($event)" [innerHTML]="mission.content"></p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="con">
+                <h1 [contentEditable]="loginstatus" (input)="onvisionheadingchange($event)" [innerHTML]="vision.heading"></h1>
+                <p [contentEditable]="loginstatus" (input)="onvisioncontentchange($event)" [innerHTML]="vision.content"></p>
+            </div>
+            <input type="file" id="visionfileinput" *ngIf="loginstatus" (change)="onvisionimagechange($event)" hidden accept="image/*" >
+            <img [src]="visionfile.url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggervisionFileInput()">
+            <img [src]="visionfile.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview">
+         </div>
+         <div class="box">
+            <input type="file" id="goalfileinput" *ngIf="loginstatus" (change)="ongoalimagechange($event)" hidden accept="image/*" >
+            <img [src]="goalfile.url" 
+                *ngIf="loginstatus"
+                id="welcomeimagePreview" 
+                alt="Click to upload"
+                (click)="triggergoalFileInput()">
+            <img [src]="goalfile.url" *ngIf="!loginstatus" alt="" id="welcomeimagePreview" >
+            <div class="con">
+                <h1 [contentEditable]="loginstatus" (input)="ongoalheadingchange($event)" [innerHTML]="goal.heading"></h1>
+                <p [contentEditable]="loginstatus" (input)="ongoalcontentchange($event)" [innerHTML]="goal.content"></p>
+            </div>
+         </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<!--
+<input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
+<img id="imagePreview" src="../../assets/doctor1new.png" alt="Click to upload" onclick="document.getElementById('fileInput').click()">
+
+
+<div class="content">
+        <div class="con">
+            <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)" [innerHTML]="facilitysection.heading"></h1>
+            <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="facilitysection.content"></p>
+        </div>
+        <input type="file" id="welcomefileinput" *ngIf="loginstatus" (change)="onwelcomechange($event)" hidden accept="image/*" >
+        <img [src]="filehandle.url" 
+            *ngIf="loginstatus"
+            id="welcomeimagePreview" 
+            alt="Click to upload"
+            (click)="triggerFileInput()">
+        <img [src]="filehandle.url" *ngIf="!loginstatus" alt="">
+    </div>
+
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem ea animi laboriosam molestias, error voluptatum iure deleniti minus tempora? Totam cumque maxime omnis laudantium aperiam explicabo eveniet! Optio, incidunt amet?
+Ipsum aut eius, expedita, incidunt ab fugit pariatur, iusto labore voluptates adipisci velit illo reprehenderit. Provident voluptatibus tempora quod sint aut recusandae repudiandae nihil perferendis iusto, assumenda dolorum deleniti. Natus!
+-->

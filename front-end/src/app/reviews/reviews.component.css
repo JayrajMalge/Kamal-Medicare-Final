@@ -1,0 +1,49 @@
+.main{
+    width: 100%;
+    border-top: #ffb5b5 6px solid;
+    height: max-content;
+    background-color: #ddd;
+    border-bottom: #132743 6px solid;
+}
+.content{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    text-align: center;
+}
+.reviews{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.links{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 4%;
+}
+
+h1,p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #132743;
+}
+
+a{
+    font-size: 1rem;
+    color: #ffb5b5;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+    border-radius: 0.4rem;
+    background-color: #407088;
+    width: max-content;
+}

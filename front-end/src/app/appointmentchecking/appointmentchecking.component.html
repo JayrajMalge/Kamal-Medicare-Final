@@ -1,0 +1,16 @@
+   <div class="appoint" *ngFor="let appoint of appointments">
+      <h3>{{appoint.user?.username}}</h3>
+      <p>{{appoint.doctor?.name}}</p>
+      <p>{{appoint.appointmentdate}}</p>
+      <p>{{appoint.mobileno}}</p>
+      <div class="spinner" [hidden]="!spinner"></div>
+      <form  *ngIf="appoint.status=='Scheduled'">
+         <input type="date" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" >
+         <input type="submit" value="Accept Appointment" (click)="acceptappointment(appoint)" >
+      </form>
+      <input type="submit" (click)="rejectappointment(appoint)" value="Reject Appointment">
+      <p>{{appoint.status}}</p>
+   </div>
+   <div class="appoint" *ngIf="appointments.length == 0">
+      <h1>Appointment Are Empty</h1> 
+   </div>

@@ -1,0 +1,15 @@
+<!--<a href="/newsblog/{{news.newsid}}">
+    <div class="main">
+        <img [src]="filehandle.url" alt="">
+        <h3 class="head">{{news.title}}</h3>
+    </div>
+</a>-->
+<a href="/newsblog/{{news.newsid}}">
+    <div class="main">
+        <div class="image-container">
+            <img [src]="filehandle.url" alt="News Image" class="news-image">
+            <div class="overlay"></div>
+        </div>
+        <h3 class="head">{{news.title}}</h3>
+    </div>
+</a>

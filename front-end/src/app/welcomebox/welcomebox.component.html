@@ -1,0 +1,35 @@
+<!--<div class="main">
+    <div class="content">
+    <h1 [contentEditable]="loginstatus" (input)="onheadingchange($event)"[innerHTML]="heading.content"></h1>
+    <p [contentEditable]="loginstatus" (input)="oncontentchange($event)" [innerHTML]="content.content"></p>
+          <a href="/about-us">View More</a>
+    </div>
+    <input type="file" id="welcomefileinput" *ngIf="loginstatus" (change)="onwelcomechange($event)" hidden accept="image/*" >
+        <img [src]="filehandle.url" 
+            *ngIf="loginstatus"
+            id="welcomeimagePreview" 
+            alt="Click to upload"
+            (click)="triggerFileInput()">
+        <img [src]="filehandle.url" *ngIf="!loginstatus" alt="">
+</div>-->
+<app-header></app-header>
+<div class="main">
+   <div class="content">
+     <h2>{{showtreatment.treatment.title}}</h2>
+     <p>{{showtreatment.treatment.description}}</p>
+   </div>
+   <div class="casestudies">
+      <div class="casestudy" *ngFor="let cas of showtreatment.casestudiesarray">
+          <h4>{{cas.casestudy.title}}</h4>
+          <p>{{cas.casestudy.description}}</p>
+          <div class="images">
+             <img *ngFor="let img of cas.casestudyimages" [src]="img.url" alt="">
+          </div>
+      </div>
+      <h2>Performed Doctors</h2>
+   </div>
+   <div class="doctors">
+      <app-doctor-box *ngFor="let doc of Doctor" [doc]="doc"></app-doctor-box>
+   </div>
+</div>
+<app-footer></app-footer>
