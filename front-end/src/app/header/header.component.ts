@@ -74,9 +74,7 @@ export class HeaderComponent implements OnInit {
        content : data
     }
     this.userservices.savesection("updatesection",s).subscribe(
-      (response)=>{
-        
-      },(error)=>{}
+      (response)=>{},(error)=>{}
     )
   }
   isDialogOpen: boolean = false;
