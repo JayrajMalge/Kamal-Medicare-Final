@@ -39,8 +39,8 @@ p{
 }
 
 .images img{
-    width: calc(100px + 1vw);
-    height: calc(100px + 1vw);
+    width: 40%;
+    height: auto;
     object-fit: contain;
     border-radius: 1rem;
 }
