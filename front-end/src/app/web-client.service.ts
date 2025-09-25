@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class WebClientService {
 
   TOKEN='';
-  //API_URL=""
-  API_URL="/"
+  API_URL="http://10.68.21.97:5000/"
+  //API_URL="/"
   constructor(private http:HttpClient) {}
   public get<T>(url:string)
   {

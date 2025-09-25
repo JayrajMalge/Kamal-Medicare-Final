@@ -2,7 +2,7 @@
 <div class="main" *ngIf="operation=='Add Disease' || editmode" >
     <form  (submit)="facilitysubmitform(operation)">
       <label for="Disease name">Disease Name</label>
-      <input type="text" name="Disease name" maxlength="20" placeholder="Enter your Facilite name Within 20 characters" [(ngModel)]="dis.name">
+      <input type="text" name="Disease name" maxlength="40" placeholder="Enter your Facilite name Within 20 characters" [(ngModel)]="dis.name">
   
       <label for="Disease Description">Disease Description</label>
       <textarea name="about" cols="30" rows="10" placeholder="Write something about Facilite" [(ngModel)]="dis.description" ></textarea>
@@ -12,7 +12,7 @@
       <button type="button" [hidden]="!editmode" (click)="openDialog()" id="btn">view images</button>
   
   
-      <button type="submit">{{operation.split(" ")[0]}}</button>
+      <button type="submit" *ngIf="spinner">{{operation.split(" ")[0]}}</button>
       <div class="spinner" [hidden]="spinner"></div>
     </form>
 </div>

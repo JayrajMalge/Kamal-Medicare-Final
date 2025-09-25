@@ -2,10 +2,10 @@
 <div class="main" *ngIf="operation=='Add Treatments' || treatmenteditmode">
     <form [formGroup]="treatment" >
       <label for="title">Title *</label>
-      <input type="text" formControlName="title" maxlength="30" name="name" placeholder="Enter Treatment Title within 30 characters">
+      <input type="text" formControlName="title" maxlength="100" name="name" placeholder="Enter Treatment Title within 100 characters">
   
       <label for="description">Description *</label>
-      <textarea name="description" id="" formControlName="description" cols="30"  placeholder="Enter Treatment Description within 30 Characters" rows="10"></textarea>
+      <textarea name="description" formControlName="description" cols="30"  placeholder="Enter Treatment Description within 30 Characters" rows="10"></textarea>
   
 
       <button (click)="adddoctor()" style="margin-top: 12px; margin-bottom: 12px;" >Add Doctor</button>
@@ -18,30 +18,6 @@
           <button (click)="removedoctor(k)">Remove Doctor</button>
         </form>
       </div>
-    
-      <!--<label for="patientname">Patient Name</label>
-      <input type="text" name="patientname" formControlName="patientname" maxlength="20" placeholder="Enter Patient name within 15 Characters">
-  
-      <label for="patientage">Patient Age</label>
-      <input type="number" maxlength="3" name="patientage" formControlName="patientage" id="">
-  
-      <label for="patientgender">Patient Gender</label>
-      <select name="patientgender" formControlName="patientgender">
-        <option value="Male">Male</option>
-        <option value="Feamale">Female</option>
-      </select>
-  
-      <label for="patientmobile">Patient Mobile no</label>
-      <input type="number" name="patientmobile" formControlName="patientmobile" maxlength="10" placeholder="Enter Patient Mobile number" >
-  
-      <label for="patientaddress">Patient Address</label>
-      <input type="text" name="patientaddress" formControlName="patientaddress" maxlength="30" placeholder="Enter Patient Address within 30 Characters">
-  
-      <label for="cost">Cost</label>    
-      <input type="number" name="cost" formControlName="cost">
-  
-      <label for="treatmentdate">Treatment Date</label>
-      <input type="date" name="treatmentdate" formControlName="treatmentdate">-->
   
       <button (click)="addcasestudies()" style="margin-top: 12px; margin-bottom: 12px;" >Add Case study</button>
       <div class="educations" formArrayName="casestudies">

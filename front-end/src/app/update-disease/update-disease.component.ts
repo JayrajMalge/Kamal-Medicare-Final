@@ -34,13 +34,16 @@ export class UpdateDiseaseComponent {
 
   dis : disease = new disease()
   faciltiesimagesinput(event: any): void {
+    this.spinner = false
     const files = event.target.files;
-    if (files && files.length > 1) {
+    if (files && files.length > 0) {
       this.diseaseimages = Array.from(files)
     }
+    this.spinner = true
   }
   facilitysubmitform(operation : string){
     if(operation=='Add Disease'){
+      this.spinner = false;
       const newdis = {
         name : this.dis.name,
         description : this.dis.description,
@@ -52,18 +55,20 @@ export class UpdateDiseaseComponent {
             image.append("disid",storeddis.diseaseid)
             this.diseaseimages.map((img)=>{
               image.append("images",img)
-              console.log(img.image)
-              this.userservice.savediseaseimages("setnewdiseaseimages",image).subscribe(
-                (response)=>{
-                  alert("Disease Created Sucessfully")
-                },(error)=>{}
-              )
             })
+            this.userservice.savediseaseimages("setnewdiseaseimages",image).subscribe(
+              (response)=>{
+                alert("Disease Created Sucessfully")
+                window.location.reload()
+                this.spinner = true
+              },(error)=>{}
+            )
         },(error)=>{
             console.log(error)
         }
       )
     } else {
+      this.spinner = false;
       this.userservice.savedisease("setnewdisease",this.dis).subscribe(
         (response)=>{
           if(this.diseaseimages.length > 0){
@@ -76,9 +81,9 @@ export class UpdateDiseaseComponent {
                 (response)=>{
                   alert("Update Sucessfully")
                   this.editmode = false
+                  this.spinner = true
                   window.location.reload()
-                },(error)=>{
-                }
+                },(error)=>{}
               )
             })
           } else {

@@ -19,11 +19,13 @@ export class AlldiseasesComponent {
   diseases : disease[] = []
   loginstatus : boolean = true
   mainspinner : boolean = false
+  windowwidth : number = 0;
 
   search : string = ''
   constructor(private route : Router,private userservices : UserServiceService){}
   ngOnInit(): void {
     this.mainspinner = true
+    this.windowwidth = window.innerWidth;
     this.userservices.getAllcompletediseases("getalldiseases").subscribe(
       (resposnes)=>{
           this.diseases = resposnes

@@ -16,7 +16,7 @@
        <div class="special" *ngFor="let spe of diseases">
           <div class="special-card">
             <h4>{{spe.name}}</h4>
-            <p>{{spe.description}}</p>
+            <p>{{windowwidth > 800 ? spe.description : spe.description.substring(0,90)+'....'}}</p>
             <a href="/diseases/{{spe.diseaseid}}" class="view-more">View More</a>
         </div>
        </div>

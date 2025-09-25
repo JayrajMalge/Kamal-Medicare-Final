@@ -220,9 +220,7 @@ export class AddDoctorComponent implements OnInit{
                   doctor: doc.doctorid
                 }
                 this.userservice.createeducation("saveeducation",singleeducation).subscribe(
-                  (resposnes)=>{
-
-                  },(error)=>{}
+                  (resposnes)=>{},(error)=>{}
                 )
             })
           },(error)=>{}
