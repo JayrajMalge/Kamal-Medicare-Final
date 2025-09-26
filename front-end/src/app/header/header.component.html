@@ -1,11 +1,9 @@
 
 <nav>
-    <a *ngIf="role!='Admin'" href="/">
-       <div class="logo">
-        <img src="../../assets/logoicon.png" style="width: 60px; height: auto;">
-        <p class="icon" [contentEditable]="role=='Admin'" (input)="checkinput($event)" [innerHTML]="logo.content"></p>
-      </div>
-    </a>
+  <div class="logo">
+    <a href="/"><img src="../../assets/logoicon.png" style="width: 60px; height: auto;"></a>
+    <a href="/"><p class="icon" [contentEditable]="role=='Admin'" (input)="checkinput($event)" [innerHTML]="logo.content"></p></a>
+  </div>
     <div *ngIf="role=='Admin'" class="logo">
       <img src="../../assets/logoicon.png" style="width: 60px; height: auto;">
       <p class="icon" [contentEditable]="role=='Admin'" (input)="checkinput($event)" [innerHTML]="logo.content"></p>
