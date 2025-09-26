@@ -103,11 +103,7 @@ export class HeaderComponent implements OnInit {
 
   isappointmentopen: boolean = false;
   openAppointment() {
-    if(this.loginstatus){
-      this.isappointmentopen = true;
-    }else{
-      this.route.navigate(["/login"])
-    }
+    this.isappointmentopen = true;
   }
   handleAppointmentClose() {
     this.isappointmentopen = false;

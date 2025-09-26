@@ -48,33 +48,29 @@ export class BlogsNewsComponent implements OnInit{
     )
   }
   heading : Section = new Section()
-content : Section = new Section()
-onheadingchange(event : any){
-const data = event.target.innerHTML
-const s  = {
-sectionid : 5,
-heading : 'section7heading',
-content : data
-}
-this.userservice.savesection("updatesection",s).subscribe(
-(response)=>{
-  
-},(error)=>{}
-)
-}
-oncontentchange(event : any){
-const data = event.target.innerHTML
-const s  = {
-sectionid : 14,
-heading : 'section7content',
-content : data
-}
-this.userservice.savesection("updatesection",s).subscribe(
-(response)=>{
-  
-},(error)=>{}
-)
-}
+  content : Section = new Section()
+  onheadingchange(event : any){
+    const data = event.target.innerHTML
+    const s  = {
+      sectionid : 5,
+      heading : 'section7heading',
+      content : data
+    }
+    this.userservice.savesection("updatesection",s).subscribe(
+      (response)=>{},(error)=>{}
+    )
+  }
+  oncontentchange(event : any){
+    const data = event.target.innerHTML
+    const s  = {
+      sectionid : 14,
+      heading : 'section7content',
+      content : data
+    }
+    this.userservice.savesection("updatesection",s).subscribe(
+      (response)=>{},(error)=>{}
+    )
+  }
 }
 
 

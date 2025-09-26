@@ -3,7 +3,7 @@ import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { DoctorBoxComponent } from '../doctor-box/doctor-box.component';
 import { UserServiceService } from '../user-service.service';
-import { Doctor, Specialization } from '../enities';
+import { Doctor, Specialization,Section } from '../enities';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class DoctorsallComponent {
   constructor(private userservice : UserServiceService){}
   doctorarray : Doctor[] =  []
+  loginstatus : boolean = false;
   specializationarray : Specialization[] = []
   ngOnInit(): void {
     this.userservice.getdoctors("getdoctors").subscribe(
@@ -27,6 +28,18 @@ export class DoctorsallComponent {
     this.userservice.getspecailizations("getspecializations").subscribe(
       (response)=>{
          this.specializationarray = response
+      },(error)=>{}
+    )
+    this.userservice.getsectionbysectionid("getsectionbysectionid",113).subscribe(
+      (response)=>{
+          this.content = response
+      },(error)=>{}
+    )
+    this.content.content = this.content.content + "dh"
+    const email = window.localStorage.getItem("email")??''
+    this.userservice.getuserbyemail("getbyemail",email).subscribe(
+      (response)=>{
+          this.loginstatus = response.role=='Admin'
       },(error)=>{}
     )
   }
@@ -90,5 +103,19 @@ export class DoctorsallComponent {
     if (index >= 0 && index < this.totalPages) {
       this.currentIndex = index;
     }
+  }
+
+  content : Section = new Section()
+  oncontentchange(event : any){
+    const data = event.target.innerHTML
+    const s  = {
+      sectionid : 113,
+      heading : 'alldoc_heading',
+      content : data
+    }
+    console.log(s)
+    this.userservice.savesection("updatesection",s).subscribe(
+      (response)=>{},(error)=>{}
+    )
   }
 }

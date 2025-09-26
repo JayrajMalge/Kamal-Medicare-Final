@@ -1,23 +1,4 @@
 
-<!--<div class="main" *ngIf="operation=='Add Facilites' || editmode" >
-    <form  (submit)="facilitysubmitform(operation)">
-      <label for="Facilite-name">Facilite Name</label>
-      <input type="text" name="Facilite-name" maxlength="20" placeholder="Enter your Facilite name Within 20 characters" [(ngModel)]="facility.facilityname">
-  
-      <label for="Facilite Description">About</label>
-      <textarea name="about" cols="30" rows="10" placeholder="Write something about Facilite" [(ngModel)]="facility.description" ></textarea>
-  
-      <label for="Facilite Picture">Add Facilite Picture</label>
-      <input type="file" (change)="faciltiesimagesinput($event)" multiple name="FacilitePicture">
-      <button type="button" [hidden]="!editmode" (click)="openDialog()">view images</button>
-  
-      <label for="FaciliteType">Facilite Type</label>
-      <input type="text" placeholder="Enter Facilite Type in 20 Characters" [(ngModel)]="facility.facilitytype" maxlength="20" name="FaciliteType" id="">
-  
-      <button type="submit">{{operation.split(" ")[0]}}</button>
-      <div class="spinner" [hidden]="spinner"></div>
-    </form>
-</div>-->
 <div class="main" *ngIf="operation=='Add Facilites' || editmode">
   <form #facilityForm="ngForm" (submit)="facilitysubmitform(operation,facilityForm)">
     <label for="Facilite-name">Facilite Name</label>

@@ -68,10 +68,11 @@ h1 {
 
 h1 {
     color: #007BFF;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
+    font-weight: bold;
     text-decoration: #007BFF solid 5px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .content p {

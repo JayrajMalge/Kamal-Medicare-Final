@@ -1,7 +1,7 @@
 <div class="main" *ngIf="operation=='Add News'">
     <form (ngSubmit)="newssubmitform(operation)">
       <label for="News-Title">News Title *</label>
-      <input type="text" name="News-Title" placeholder="Enter your News name" [(ngModel)]="newsname">
+      <input type="text" name="News-Title" maxlength="100" placeholder="Enter your News name within 100 characters" [(ngModel)]="newsname">
   
       <label for="News-Description">News Description *</label>
       <textarea name="News-Description" cols="30" rows="10" placeholder="Write something about News" [(ngModel)]="newsdescription"></textarea>
